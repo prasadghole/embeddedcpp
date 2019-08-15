@@ -29,13 +29,13 @@
 </section>
 
 <section>
-<section id="slide-org086db75">
-<h2 id="org086db75">Setup</h2>
+<section id="slide-org2727fb1">
+<h2 id="org2727fb1">Setup</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgb0b1d3c">
-<h2 id="orgb0b1d3c">Why command line</h2>
+<section id="slide-org162e703">
+<h2 id="org162e703">Why command line</h2>
 <p>
 In the world of feature rich IDE many things are implicitly hidden from user. In order to understand details of firmware building 
 we will use command line tools initially. Once we understand lower level details we will move to IDE based development.
@@ -46,8 +46,8 @@ Command line tools also helps in build automation.
 </section>
 </section>
 <section>
-<section id="slide-org9c9de16">
-<h2 id="org9c9de16">Installing cross compiler</h2>
+<section id="slide-org2b5f020">
+<h2 id="org2b5f020">Installing cross compiler</h2>
 <ol>
 <li>Go to the <a href="https://developer.arm.com">https://developer.arm.com</a></li>
 <li>Click on Tools and software &gt;&gt; Open source Software &gt;&gt; GNU toolchain</li>
@@ -61,19 +61,19 @@ Command line tools also helps in build automation.
 </section>
 </section>
 <section>
-<section id="slide-orgbb980c5">
-<h2 id="orgbb980c5">Verify installation</h2>
+<section id="slide-org1812740">
+<h2 id="org1812740">Verify installation</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org2355e1d">
-<h2 id="org2355e1d">STM32F103 board</h2>
-<div class="outline-text-2" id="text-org2355e1d">
+<section id="slide-org43010ec">
+<h2 id="org43010ec">STM32F103 board</h2>
+<div class="outline-text-2" id="text-org43010ec">
 </div>
 </section>
-<section id="slide-org971e13a">
-<h3 id="org971e13a">Evaluation firmware</h3>
+<section id="slide-orgef3ffbb">
+<h3 id="orgef3ffbb">Evaluation firmware</h3>
 <p>
 <a href="https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html">https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html</a>
 <a href="https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource">https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource</a>
@@ -82,27 +82,27 @@ Command line tools also helps in build automation.
 </section>
 </section>
 <section>
-<section id="slide-orgabcc4ad">
-<h2 id="orgabcc4ad">stlink</h2>
-<div class="outline-text-2" id="text-orgabcc4ad">
+<section id="slide-org1616053">
+<h2 id="org1616053">stlink</h2>
+<div class="outline-text-2" id="text-org1616053">
 </div>
 </section>
-<section id="slide-org52f299e">
-<h3 id="org52f299e">WARNING</h3>
+<section id="slide-orgae9416a">
+<h3 id="orgae9416a">WARNING</h3>
 <p>
 Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
 </p>
 </section>
-<section id="slide-orgd440d81">
-<h3 id="orgd440d81">ST link usb drive</h3>
+<section id="slide-org249b157">
+<h3 id="org249b157">ST link usb drive</h3>
 <p>
 Download usb driver from 
 <a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html</a>
  Run stlink<sub>winusb</sub><sub>install</sub> batch file to install driver.
 </p>
 </section>
-<section id="slide-org606f71a">
-<h3 id="org606f71a">ST link utilities</h3>
+<section id="slide-org693d85b">
+<h3 id="org693d85b">ST link utilities</h3>
 <p>
 Download st link utility from 
 <a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html</a>
@@ -111,28 +111,28 @@ Download st link utility from
 </section>
 </section>
 <section>
-<section id="slide-orgd6ca0f8">
-<h2 id="orgd6ca0f8">Debug Server</h2>
-<div class="outline-text-2" id="text-orgd6ca0f8">
+<section id="slide-org043722e">
+<h2 id="org043722e">Debug Server</h2>
+<div class="outline-text-2" id="text-org043722e">
 </div>
 </section>
-<section id="slide-org86610d6">
-<h3 id="org86610d6">OpenOCD</h3>
+<section id="slide-orgf06aed5">
+<h3 id="orgf06aed5">OpenOCD</h3>
 </section>
-<section id="slide-orgbafea5d">
-<h3 id="orgbafea5d">GDB Server</h3>
+<section id="slide-orgbc1f29a">
+<h3 id="orgbc1f29a">GDB Server</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgfdc2d7d">
-<h2 id="orgfdc2d7d">libopencm3 or STM HAL</h2>
+<section id="slide-org8aa940b">
+<h2 id="org8aa940b">libopencm3 or STM HAL</h2>
 
 
 </section>
 </section>
 <section>
-<section id="slide-orgb9ceddf">
-<h2 id="orgb9ceddf">STM32Cube Project</h2>
+<section id="slide-orgf2da602">
+<h2 id="orgf2da602">STM32Cube Project</h2>
 <ol>
 <li>Create STM32Cube project</li>
 <li>Select board</li>
@@ -143,27 +143,27 @@ Download st link utility from
 </section>
 </section>
 <section>
-<section id="slide-org81bbd93">
-<h2 id="org81bbd93">Hello World</h2>
-<div class="outline-text-2" id="text-org81bbd93">
+<section id="slide-org17d84ed">
+<h2 id="org17d84ed">Hello World</h2>
+<div class="outline-text-2" id="text-org17d84ed">
 </div>
 </section>
-<section id="slide-org35c9020">
-<h3 id="org35c9020">Write Program</h3>
+<section id="slide-org8bcf08f">
+<h3 id="org8bcf08f">Write Program</h3>
 </section>
-<section id="slide-org98c0e54">
-<h3 id="org98c0e54">Compliling</h3>
+<section id="slide-orga436c5e">
+<h3 id="orga436c5e">Compliling</h3>
 </section>
-<section id="slide-orgb2bf9fa">
-<h3 id="orgb2bf9fa">Linking</h3>
+<section id="slide-orgd9d43a2">
+<h3 id="orgd9d43a2">Linking</h3>
 </section>
-<section id="slide-org0a3878b">
-<h3 id="org0a3878b">Loading firmware to target</h3>
-<div class="outline-text-3" id="text-org0a3878b">
+<section id="slide-org6917191">
+<h3 id="org6917191">Loading firmware to target</h3>
+<div class="outline-text-3" id="text-org6917191">
 </div>
 </section>
-<section id="slide-org490a42a">
-<h4 id="org490a42a">Converting to binary</h4>
+<section id="slide-orgf44c86e">
+<h4 id="orgf44c86e">Converting to binary</h4>
 <p>
 ELf file consists of additional header informatio. but to load binary on target flash we need to strip down this 
 additional information. 
@@ -176,8 +176,8 @@ arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
 </code></pre>
 </div>
 </section>
-<section id="slide-org0f634a4">
-<h4 id="org0f634a4">Programming Controller</h4>
+<section id="slide-org516bf6d">
+<h4 id="org516bf6d">Programming Controller</h4>
 <div class="org-src-container">
 
 <pre  class="src src-bash"><code trim>st-link_cli -C SWD -P firmware.bin <span style="color: #a45bad;">0x8000000</span> -V <span style="color: #2d9574;">"after_programming"</span>
@@ -188,32 +188,32 @@ arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
 Linker scripts describes the
 </p>
 </section>
-<section id="slide-org0b57b48">
-<h3 id="org0b57b48">Debug</h3>
-<div class="outline-text-3" id="text-org0b57b48">
+<section id="slide-org992e64c">
+<h3 id="org992e64c">Debug</h3>
+<div class="outline-text-3" id="text-org992e64c">
 </div>
 </section>
-<section id="slide-org178f50e">
-<h4 id="org178f50e">Start GDB server</h4>
+<section id="slide-org8177b38">
+<h4 id="org8177b38">Start GDB server</h4>
 </section>
-<section id="slide-orgea2119f">
-<h4 id="orgea2119f">load elf</h4>
+<section id="slide-orgb82bd62">
+<h4 id="orgb82bd62">load elf</h4>
 </section>
-<section id="slide-orgb342cc8">
-<h4 id="orgb342cc8">Debug</h4>
+<section id="slide-org3a04fa0">
+<h4 id="org3a04fa0">Debug</h4>
 </section>
 </section>
 <section>
-<section id="slide-org1742e9d">
-<h2 id="org1742e9d">C++ 14</h2>
+<section id="slide-org45e3d1f">
+<h2 id="org45e3d1f">C++ 14</h2>
 <p>
 C++ standard evolved more rapidly after release of 2011
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgfc28030">
-<h2 id="orgfc28030">Use namespece</h2>
+<section id="slide-org82202c7">
+<h2 id="org82202c7">Use namespece</h2>
 <p>
 Explain how we can use namespace to simplify naming of common static functions.
 #+SRC<sub>BEGIN</sub> C++
@@ -226,42 +226,79 @@ Explain how we can use namespace to simplify naming of common static functions.
 </section>
 </section>
 <section>
-<section id="slide-orgd2dd826">
-<h2 id="orgd2dd826">static asserts</h2>
+<section id="slide-org7695b53">
+<h2 id="org7695b53">Strongly typed</h2>
+<div class="outline-text-2" id="text-org7695b53">
+</div>
+</section>
+<section id="slide-orgb5afce1">
+<h3 id="orgb5afce1">enum class</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgca59dce">
+<h2 id="orgca59dce">Function Inline</h2>
+<p>
+Macros can be replaced with strongly typed
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org644596d">
+<h2 id="org644596d">Type Conversions</h2>
+<div class="outline-text-2" id="text-org644596d">
+</div>
+</section>
+<section id="slide-orgdfeaf88">
+<h3 id="orgdfeaf88">dynamic<sub>cast</sub></h3>
+</section>
+<section id="slide-org801f98a">
+<h3 id="org801f98a">reinterpret<sub>cast</sub></h3>
+</section>
+<section id="slide-org9cd214e">
+<h3 id="org9cd214e">static<sub>cast</sub></h3>
+</section>
+<section id="slide-org9db37f7">
+<h3 id="org9db37f7">const<sub>cast</sub></h3>
+</section>
+</section>
+<section>
+<section id="slide-orgc7d350c">
+<h2 id="orgc7d350c">static asserts</h2>
 <p>
 This will help in compile time catching of errors.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgc3bb1e4">
-<h2 id="orgc3bb1e4">Mixing C and C++  libraries</h2>
+<section id="slide-org307f6b4">
+<h2 id="org307f6b4">Mixing C and C++  libraries</h2>
 </section>
 </section>
 <section>
-<section id="slide-org1c77210">
-<h2 id="org1c77210">Referances</h2>
-<div class="outline-text-2" id="text-org1c77210">
+<section id="slide-orgf5163e3">
+<h2 id="orgf5163e3">Referances</h2>
+<div class="outline-text-2" id="text-orgf5163e3">
 </div>
 </section>
-<section id="slide-org8bc5367">
-<h3 id="org8bc5367">Gnu C</h3>
-<div class="outline-text-3" id="text-org8bc5367">
+<section id="slide-org99cf792">
+<h3 id="org99cf792">Gnu C</h3>
+<div class="outline-text-3" id="text-org99cf792">
 </div>
 </section>
-<section id="slide-org8979949">
-<h4 id="org8979949">Predefined macros</h4>
+<section id="slide-org0b0ce2d">
+<h4 id="org0b0ce2d">Predefined macros</h4>
 <p>
 <a href="https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html">https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html</a>
 </p>
 </section>
-<section id="slide-org1acf5de">
-<h3 id="org1acf5de">Keil library</h3>
-<div class="outline-text-3" id="text-org1acf5de">
+<section id="slide-orgdfe22cf">
+<h3 id="orgdfe22cf">Keil library</h3>
+<div class="outline-text-3" id="text-orgdfe22cf">
 </div>
 </section>
-<section id="slide-org803a086">
-<h4 id="org803a086">run time library support</h4>
+<section id="slide-org6ddfb0c">
+<h4 id="org6ddfb0c">run time library support</h4>
 <p>
 <a href="http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm">http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm</a>
 </p>
@@ -269,6 +306,16 @@ This will help in compile time catching of errors.
 <p>
 C++ libraries need C libraries for target specific support.
 </p>
+</section>
+</section>
+<section>
+<section id="slide-org7be57b7">
+<h2 id="org7be57b7">Templates</h2>
+</section>
+</section>
+<section>
+<section id="slide-org3666c0f">
+<h2 id="org3666c0f">std::Array</h2>
 </section>
 </section>
 </div>

@@ -78,6 +78,15 @@ Explain how we can use namespace to simplify naming of common static functions.
 
 #+SRC_END
 
+* Strongly typed
+** enum class
+* Function Inline
+  Macros can be replaced with strongly typed
+* Type Conversions
+** dynamic_cast
+** reinterpret_cast
+** static_cast
+** const_cast
 * static asserts 
 This will help in compile time catching of errors.
 * Mixing C and C++  libraries 
@@ -90,3 +99,5 @@ https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html
 http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm
 
 C++ libraries need C libraries for target specific support.
+* Templates
+* std::Array
