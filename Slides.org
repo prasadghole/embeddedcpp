@@ -13,7 +13,7 @@
  | ARM    | C++14        |
  | IAR    | C++14        |
  | GCC    | C++17        |
-* Setup
+* Evaluation Boards
 ** Nucleo-F767ZI
    [[./images/nucleo-f767.png]]
 ** Features
@@ -31,14 +31,30 @@
   3. Mass storage
   4. Virtual COM port
   5. Flexible power supply options
-* Installing cross compiler
+* Debug Tools
+** OpenOCD and STM GDB server
+[[http://openocd.org/doc/html/index.html]]
+
+OpenOCD is a Open On-Chip debugger that provides programming,debugging  boudry-scan
+testing for embedded device. It acts as a server and acceptss incoming
+connection from GDB via port 3333 or telnet port 4444.
+*** Setup
+[[./images/debugserver.png]]
+
+* Installing GCC cross compiler
 1. Go to the https://developer.arm.com 
 2. Click on Tools and software >> Open source Software >> GNU toolchain
+#+REVEAL: split
 3. Downlaod ARM GNU embedded toolchain as per your host platform (only 32 bit toolchains are available now)
 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 
 * Verify installation
   
+#+BEGIN_SRC shell :exports code :eval yes
+
+arm-none-eabi-g++ --version
+ 
+#+END_SRC
 * Build Process
 * STM32F103 board
 ** Evaluation firmware
@@ -56,17 +72,6 @@ https://my.st.com/content/my_st_com/en/products/development-tools/software-devel
 Download st link utility from 
 https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html
 
-* Debug Server 
-** OpenOCD
-** GDB Server
-* libopencm3 or STM HAL
-
-
-* STM32Cube Project
-1. Create STM32Cube project
-2. Select board 
-3. Give project Name
-4. Select target C++
 * Hello World
 ** Write Program
 ** Compliling
