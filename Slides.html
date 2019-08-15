@@ -28,13 +28,13 @@
 <section id="sec-title-slide"><h1 class="title">Embedded C++</h1>
 </section>
 <section>
-<section id="slide-orgedaa18f">
-<h2 id="orgedaa18f">Introduction to C++</h2>
+<section id="slide-org12dd68e">
+<h2 id="org12dd68e">Introduction to C++</h2>
 </section>
 </section>
 <section>
-<section id="slide-org077b90b">
-<h2 id="org077b90b">Devlopment tools</h2>
+<section id="slide-orgb0c294e">
+<h2 id="orgb0c294e">Devlopment tools</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -74,49 +74,21 @@
 </section>
 </section>
 <section>
-<section id="slide-org786d09d">
-<h2 id="org786d09d">Debug Tools</h2>
-<div class="outline-text-2" id="text-org786d09d">
+<section id="slide-org8c50581">
+<h2 id="org8c50581">Evaluation Boards</h2>
+<div class="outline-text-2" id="text-org8c50581">
 </div>
 </section>
-<section id="slide-org4a2161b">
-<h3 id="org4a2161b">OpenOCD and STM GDB server</h3>
-<p>
-<a href="http://openocd.org/doc/html/index.html">http://openocd.org/doc/html/index.html</a>
-</p>
-
-<p>
-OpenOCD is a Open On-Chip debugger that provides programming,debugging  boudry-scan
-testing for embedded device. It acts as a server and acceptss incoming
-connection from GDB via port 3333 or telnet port 4444.
-</p>
-</section>
-<section id="slide-orgcf9deae">
-<h4 id="orgcf9deae">Setup</h4>
-
-<div class="figure">
-<p><img src="./images/debugserver.png" alt="debugserver.png" />
-</p>
-</div>
-
-</section>
-</section>
-<section>
-<section id="slide-orga60f312">
-<h2 id="orga60f312">Setup</h2>
-<div class="outline-text-2" id="text-orga60f312">
-</div>
-</section>
-<section id="slide-org91d9814">
-<h3 id="org91d9814">Nucleo-F767ZI</h3>
+<section id="slide-orgff62ca1">
+<h3 id="orgff62ca1">Nucleo-F767ZI</h3>
 
 <div class="figure">
 <p><img src="./images/nucleo-f767.png" alt="nucleo-f767.png" />
 </p>
 </div>
 </section>
-<section id="slide-org5226fae">
-<h3 id="org5226fae">Features</h3>
+<section id="slide-org5ac4433">
+<h3 id="org5ac4433">Features</h3>
 <ol>
 <li>3 User LED</li>
 <li>On board ST Link extension board for easy debugging</li>
@@ -127,16 +99,16 @@ connection from GDB via port 3333 or telnet port 4444.
 
 </ol>
 </section>
-<section id="slide-orgc6f9a6c">
-<h3 id="orgc6f9a6c">Nucleo-F303RE</h3>
+<section id="slide-org4b5ddd1">
+<h3 id="org4b5ddd1">Nucleo-F303RE</h3>
 
 <div class="figure">
 <p><img src="./images/nucleo-f303.png" alt="nucleo-f303.png" />
 </p>
 </div>
 </section>
-<section id="slide-org15ee204">
-<h3 id="org15ee204">Features</h3>
+<section id="slide-org618123a">
+<h3 id="org618123a">Features</h3>
 <ol>
 <li>1 User LED</li>
 <li>On board ST Link extension board for easy debugging</li>
@@ -148,15 +120,72 @@ connection from GDB via port 3333 or telnet port 4444.
 </section>
 </section>
 <section>
-<section id="slide-orga2c0743">
-<h2 id="orga2c0743">Installing GCC cross compiler</h2>
+<section id="slide-orgcf913e8">
+<h2 id="orgcf913e8">Debug Tools</h2>
+<div class="outline-text-2" id="text-orgcf913e8">
+</div>
+</section>
+<section id="slide-orgc413f5d">
+<h3 id="orgc413f5d">OpenOCD and STM GDB server</h3>
+<p>
+<a href="http://openocd.org/doc/html/index.html">http://openocd.org/doc/html/index.html</a>
+</p>
+
+<p>
+OpenOCD is a Open On-Chip debugger that provides programming,debugging  boudry-scan
+testing for embedded device. It acts as a server and acceptss incoming
+connection from GDB via port 3333 or telnet port 4444.
+</p>
+</section>
+<section id="slide-org6f2b823">
+<h4 id="org6f2b823">Setup</h4>
+
+<div class="figure">
+<p><img src="./images/debugserver.png" alt="debugserver.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org72359ff">
+<h2 id="org72359ff">stlink</h2>
+<div class="outline-text-2" id="text-org72359ff">
+</div>
+</section>
+<section id="slide-org1bce094">
+<h3 id="org1bce094">WARNING</h3>
+<p>
+Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
+</p>
+</section>
+<section id="slide-orgc4c2a3b">
+<h3 id="orgc4c2a3b">ST link usb drive</h3>
+<p>
+Download usb driver from 
+<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html</a>
+ Run stlink<sub>winusb</sub><sub>install</sub> batch file to install driver.
+</p>
+</section>
+<section id="slide-orga7b03e1">
+<h3 id="orga7b03e1">ST link utilities</h3>
+<p>
+Download st link utility from 
+<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org66b2029">
+<h2 id="org66b2029">Installing GCC cross compiler</h2>
 <ol>
 <li>Go to the <a href="https://developer.arm.com">https://developer.arm.com</a></li>
 <li>Click on Tools and software &gt;&gt; Open source Software &gt;&gt; GNU toolchain</li>
 
 </ol>
 </section>
-<section id="slide-orga2c0743-split">
+<section id="slide-org66b2029-split">
 <ol>
 <li>Downlaod ARM GNU embedded toolchain as per your host platform (only 32 bit toolchains are available now)</li>
 
@@ -168,8 +197,8 @@ connection from GDB via port 3333 or telnet port 4444.
 </section>
 </section>
 <section>
-<section id="slide-org0650375">
-<h2 id="org0650375">Verify installation</h2>
+<section id="slide-org45a7104">
+<h2 id="org45a7104">Verify installation</h2>
 <div class="org-src-container">
 
 <pre  class="src src-shell"><code trim>
@@ -180,92 +209,44 @@ arm-none-eabi-g++ --version
 </section>
 </section>
 <section>
-<section id="slide-org36657f8">
-<h2 id="org36657f8">Build Process</h2>
-</section>
-</section>
-<section>
-<section id="slide-org946a850">
-<h2 id="org946a850">STM32F103 board</h2>
-<div class="outline-text-2" id="text-org946a850">
+<section id="slide-orgb3e8061">
+<h2 id="orgb3e8061">Hello World</h2>
+<div class="outline-text-2" id="text-orgb3e8061">
 </div>
 </section>
-<section id="slide-orgd68c3f6">
-<h3 id="orgd68c3f6">Evaluation firmware</h3>
+<section id="slide-orge2b5f8d">
+<h3 id="orge2b5f8d">Build</h3>
+<div class="outline-text-3" id="text-orge2b5f8d">
+</div>
+</section>
+<section id="slide-orgf433570">
+<h4 id="orgf433570">Write Program</h4>
 <p>
-<a href="https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html">https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html</a>
-<a href="https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource">https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource</a>
+We will write hello world program which will print "Hello World of C++ " sting to serial port using micro controller UART3.
 </p>
 
-</section>
-</section>
-<section>
-<section id="slide-orgba789d6">
-<h2 id="orgba789d6">stlink</h2>
-<div class="outline-text-2" id="text-orgba789d6">
-</div>
-</section>
-<section id="slide-orgc7f4566">
-<h3 id="orgc7f4566">WARNING</h3>
+<aside class="notes">
 <p>
-Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
-</p>
-</section>
-<section id="slide-org38ad53b">
-<h3 id="org38ad53b">ST link usb drive</h3>
-<p>
-Download usb driver from 
-<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html</a>
- Run stlink<sub>winusb</sub><sub>install</sub> batch file to install driver.
-</p>
-</section>
-<section id="slide-orgbeb5ea6">
-<h3 id="orgbeb5ea6">ST link utilities</h3>
-<p>
-Download st link utility from 
-<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html</a>
+Explain virtual com port.
 </p>
 
+</aside>
 </section>
+<section id="slide-orgfd1e618">
+<h4 id="orgfd1e618">Compiling</h4>
 </section>
-<section>
-<section id="slide-org16cc060">
-<h2 id="org16cc060">Debug Server</h2>
-<div class="outline-text-2" id="text-org16cc060">
+<section id="slide-org4f363c9">
+<h4 id="org4f363c9">Linking</h4>
+</section>
+<section id="slide-orgce0a6f1">
+<h3 id="orgce0a6f1">Flash</h3>
+<div class="outline-text-3" id="text-orgce0a6f1">
 </div>
 </section>
-<section id="slide-org7af0837">
-<h3 id="org7af0837">OpenOCD</h3>
-</section>
-<section id="slide-org2b4d4e0">
-<h3 id="org2b4d4e0">GDB Server</h3>
-
-</section>
-</section>
-<section>
-<section id="slide-orgd0e4abe">
-<h2 id="orgd0e4abe">Hello World</h2>
-<div class="outline-text-2" id="text-orgd0e4abe">
-</div>
-</section>
-<section id="slide-org76f674e">
-<h3 id="org76f674e">Write Program</h3>
-</section>
-<section id="slide-orgf4d6f9b">
-<h3 id="orgf4d6f9b">Compliling</h3>
-</section>
-<section id="slide-orgb19c719">
-<h3 id="orgb19c719">Linking</h3>
-</section>
-<section id="slide-org68ff268">
-<h3 id="org68ff268">Loading firmware to target</h3>
-<div class="outline-text-3" id="text-org68ff268">
-</div>
-</section>
-<section id="slide-orge93a219">
-<h4 id="orge93a219">Converting to binary</h4>
+<section id="slide-org2ad42fd">
+<h4 id="org2ad42fd">Converting to binary</h4>
 <p>
-ELf file consists of additional header informatio. but to load binary on target flash we need to strip down this 
+ELf file consists of additional header information but to load binary on target flash we need to strip down this 
 additional information. 
 </p>
 <div class="org-src-container">
@@ -276,44 +257,32 @@ arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
 </code></pre>
 </div>
 </section>
-<section id="slide-org0eb0c03">
-<h4 id="org0eb0c03">Programming Controller</h4>
+<section id="slide-org0868da3">
+<h4 id="org0868da3">Programming Controller</h4>
 <div class="org-src-container">
 
 <pre  class="src src-bash"><code trim>st-link_cli -C SWD -P firmware.bin <span style="color: #a45bad;">0x8000000</span> -V <span style="color: #2d9574;">"after_programming"</span>
-
 </code></pre>
 </div>
-<p>
-Linker scripts describes the
-</p>
 </section>
-<section id="slide-orgcb0c3dd">
-<h3 id="orgcb0c3dd">Debug</h3>
-<div class="outline-text-3" id="text-orgcb0c3dd">
+<section id="slide-orgbc6d99b">
+<h3 id="orgbc6d99b">Debug</h3>
+<div class="outline-text-3" id="text-orgbc6d99b">
 </div>
 </section>
-<section id="slide-orge697b8d">
-<h4 id="orge697b8d">Start GDB server</h4>
+<section id="slide-org7edb8f8">
+<h4 id="org7edb8f8">Start debug server</h4>
 </section>
-<section id="slide-orgb181c6f">
-<h4 id="orgb181c6f">load elf</h4>
+<section id="slide-orgbf6028c">
+<h4 id="orgbf6028c">load elf</h4>
 </section>
-<section id="slide-org04041f6">
-<h4 id="org04041f6">Debug</h4>
-</section>
-</section>
-<section>
-<section id="slide-org13da0d5">
-<h2 id="org13da0d5">C++ 14</h2>
-<p>
-C++ standard evolved more rapidly after release of 2011
-</p>
+<section id="slide-org6fa4c37">
+<h4 id="org6fa4c37">Debug</h4>
 </section>
 </section>
 <section>
-<section id="slide-orgb3a0b1a">
-<h2 id="orgb3a0b1a">Use namespece</h2>
+<section id="slide-org2033c4b">
+<h2 id="org2033c4b">Use namespece</h2>
 <p>
 Explain how we can use namespace to simplify naming of common static functions.
 #+SRC<sub>BEGIN</sub> C++
@@ -326,94 +295,94 @@ Explain how we can use namespace to simplify naming of common static functions.
 </section>
 </section>
 <section>
-<section id="slide-orgc9869cb">
-<h2 id="orgc9869cb">Strongly typed</h2>
-<div class="outline-text-2" id="text-orgc9869cb">
+<section id="slide-org862947b">
+<h2 id="org862947b">Strongly typed</h2>
+<div class="outline-text-2" id="text-org862947b">
 </div>
 </section>
-<section id="slide-org22848ff">
-<h3 id="org22848ff">enum class</h3>
+<section id="slide-orga5f4b2a">
+<h3 id="orga5f4b2a">enum class</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgb01613c">
-<h2 id="orgb01613c">Function Inline</h2>
+<section id="slide-org7ec366b">
+<h2 id="org7ec366b">Function Inline</h2>
 <p>
 Macros can be replaced with strongly typed
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org3f27fbf">
-<h2 id="org3f27fbf">Type Conversions</h2>
-<div class="outline-text-2" id="text-org3f27fbf">
+<section id="slide-org0211498">
+<h2 id="org0211498">Type Conversions</h2>
+<div class="outline-text-2" id="text-org0211498">
 </div>
 </section>
-<section id="slide-org256dc91">
-<h3 id="org256dc91">dynamic<sub>cast</sub></h3>
+<section id="slide-org0660213">
+<h3 id="org0660213">dynamic<sub>cast</sub></h3>
 </section>
-<section id="slide-org6fb1aca">
-<h3 id="org6fb1aca">reinterpret<sub>cast</sub></h3>
+<section id="slide-org30b5c83">
+<h3 id="org30b5c83">reinterpret<sub>cast</sub></h3>
 </section>
-<section id="slide-orgb288eca">
-<h3 id="orgb288eca">static<sub>cast</sub></h3>
+<section id="slide-org08fb7a8">
+<h3 id="org08fb7a8">static<sub>cast</sub></h3>
 </section>
-<section id="slide-orge497f96">
-<h3 id="orge497f96">const<sub>cast</sub></h3>
+<section id="slide-org336edcd">
+<h3 id="org336edcd">const<sub>cast</sub></h3>
 </section>
 </section>
 <section>
-<section id="slide-org617c525">
-<h2 id="org617c525">static asserts</h2>
+<section id="slide-org5e65431">
+<h2 id="org5e65431">static asserts</h2>
 <p>
 This will help in compile time catching of errors.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orge03c49a">
-<h2 id="orge03c49a">Mixing C and C++  libraries</h2>
+<section id="slide-org51c9a44">
+<h2 id="org51c9a44">Mixing C and C++  libraries</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgf7b0ba2">
-<h2 id="orgf7b0ba2">Templates</h2>
+<section id="slide-org7df2ace">
+<h2 id="org7df2ace">Templates</h2>
 </section>
 </section>
 <section>
-<section id="slide-org7cf04a9">
-<h2 id="org7cf04a9">std::Array</h2>
+<section id="slide-org85d10e6">
+<h2 id="org85d10e6">std::Array</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgf0de765">
-<h2 id="orgf0de765">std::tuple</h2>
+<section id="slide-orgc990063">
+<h2 id="orgc990063">std::tuple</h2>
 </section>
 </section>
 <section>
-<section id="slide-org8624ed8">
-<h2 id="org8624ed8">Referances</h2>
-<div class="outline-text-2" id="text-org8624ed8">
+<section id="slide-org0536f2f">
+<h2 id="org0536f2f">Referances</h2>
+<div class="outline-text-2" id="text-org0536f2f">
 </div>
 </section>
-<section id="slide-org1362f70">
-<h3 id="org1362f70">Gnu C</h3>
-<div class="outline-text-3" id="text-org1362f70">
+<section id="slide-orgf41181c">
+<h3 id="orgf41181c">Gnu C</h3>
+<div class="outline-text-3" id="text-orgf41181c">
 </div>
 </section>
-<section id="slide-orgdc206da">
-<h4 id="orgdc206da">Predefined macros</h4>
+<section id="slide-orga8d9c39">
+<h4 id="orga8d9c39">Predefined macros</h4>
 <p>
 <a href="https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html">https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html</a>
 </p>
 </section>
-<section id="slide-org481ba73">
-<h3 id="org481ba73">Keil library</h3>
-<div class="outline-text-3" id="text-org481ba73">
+<section id="slide-org0ea9841">
+<h3 id="org0ea9841">Keil library</h3>
+<div class="outline-text-3" id="text-org0ea9841">
 </div>
 </section>
-<section id="slide-orgd656e5c">
-<h4 id="orgd656e5c">run time library support</h4>
+<section id="slide-org5d3aa88">
+<h4 id="org5d3aa88">run time library support</h4>
 <p>
 <a href="http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm">http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm</a>
 </p>

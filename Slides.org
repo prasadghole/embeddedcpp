@@ -41,6 +41,17 @@ connection from GDB via port 3333 or telnet port 4444.
 *** Setup
 [[./images/debugserver.png]]
 
+* stlink 
+** WARNING
+Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
+** ST link usb drive
+Download usb driver from 
+https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html
+ Run stlink_winusb_install batch file to install driver.
+** ST link utilities
+Download st link utility from 
+https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html
+
 * Installing GCC cross compiler
 1. Go to the https://developer.arm.com 
 2. Click on Tools and software >> Open source Software >> GNU toolchain
@@ -55,51 +66,38 @@ https://developer.arm.com/tools-and-software/open-source-software/developer-tool
 arm-none-eabi-g++ --version
  
 #+END_SRC
-* Build Process
-* STM32F103 board
-** Evaluation firmware
-https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html
-https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource
-
-* stlink 
-** WARNING
-Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
-** ST link usb drive
-Download usb driver from 
-https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html
- Run stlink_winusb_install batch file to install driver.
-** ST link utilities
-Download st link utility from 
-https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html
-
 * Hello World
-** Write Program
-** Compliling
-** Linking
-** Loading firmware to target
-*** Converting to binary
-ELf file consists of additional header informatio. but to load binary on target flash we need to strip down this 
+We will write hello world program which will print "Hello World of C++ " sting to serial port using micro controller UART3.
+
+#+BEGIN_NOTES
+Explain virtual com port.
+#+END_NOTES
+
+* Build
+*** Write Program
+*** Compiling
+*** Linking
+* Flash 
+** Converting to binary
+ELf file consists of additional header information but to load binary on target flash we need to strip down this 
 additional information. 
 #+BEGIN_SRC shell
 
 arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
  
 #+END_SRC
-*** Programming Controller
+** Programming Controller
 
 #+BEGIN_SRC bash
 st-link_cli -C SWD -P firmware.bin 0x8000000 -V "after_programming"
-
 #+END_SRC
-Linker scripts describes the
+* Debug
+** Start debug server
+** load elf
 ** Debug
-*** Start GDB server
-*** load elf
-*** Debug
-* C++ 14 
-C++ standard evolved more rapidly after release of 2011
 * Use namespece
 Explain how we can use namespace to simplify naming of common static functions.
+
 #+SRC_BEGIN C++
 
 #+SRC_END
