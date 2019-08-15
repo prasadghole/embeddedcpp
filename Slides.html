@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Embedded C++ with STM32 microcontrollers</title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./css/reveal.css"/>
+
+<link rel="stylesheet" href="./css/theme/night.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Embedded C++ with STM32 microcontrollers</h1>
+</section>
+
+<section>
+<section id="slide-org086db75">
+<h2 id="org086db75">Setup</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgb0b1d3c">
+<h2 id="orgb0b1d3c">Why command line</h2>
+<p>
+In the world of feature rich IDE many things are implicitly hidden from user. In order to understand details of firmware building 
+we will use command line tools initially. Once we understand lower level details we will move to IDE based development.
+Command line tools are mostly tool/IDE agnostic hence moving from one to other toolchain becomeds much easier. 
+Command line tools also helps in build automation.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org9c9de16">
+<h2 id="org9c9de16">Installing cross compiler</h2>
+<ol>
+<li>Go to the <a href="https://developer.arm.com">https://developer.arm.com</a></li>
+<li>Click on Tools and software &gt;&gt; Open source Software &gt;&gt; GNU toolchain</li>
+<li>Downlaod ARM GNU embedded toolchain as per your host platform (only 32 bit toolchains are available now)</li>
+
+</ol>
+<p>
+<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgbb980c5">
+<h2 id="orgbb980c5">Verify installation</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org2355e1d">
+<h2 id="org2355e1d">STM32F103 board</h2>
+<div class="outline-text-2" id="text-org2355e1d">
+</div>
+</section>
+<section id="slide-org971e13a">
+<h3 id="org971e13a">Evaluation firmware</h3>
+<p>
+<a href="https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html">https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef4.license=1562567706435.product=STM32CubeF4.version=1.24.0.html</a>
+<a href="https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource">https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubef7.html#resource</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgabcc4ad">
+<h2 id="orgabcc4ad">stlink</h2>
+<div class="outline-text-2" id="text-orgabcc4ad">
+</div>
+</section>
+<section id="slide-org52f299e">
+<h3 id="org52f299e">WARNING</h3>
+<p>
+Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
+</p>
+</section>
+<section id="slide-orgd440d81">
+<h3 id="orgd440d81">ST link usb drive</h3>
+<p>
+Download usb driver from 
+<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html</a>
+ Run stlink<sub>winusb</sub><sub>install</sub> batch file to install driver.
+</p>
+</section>
+<section id="slide-org606f71a">
+<h3 id="org606f71a">ST link utilities</h3>
+<p>
+Download st link utility from 
+<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd6ca0f8">
+<h2 id="orgd6ca0f8">Debug Server</h2>
+<div class="outline-text-2" id="text-orgd6ca0f8">
+</div>
+</section>
+<section id="slide-org86610d6">
+<h3 id="org86610d6">OpenOCD</h3>
+</section>
+<section id="slide-orgbafea5d">
+<h3 id="orgbafea5d">GDB Server</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgfdc2d7d">
+<h2 id="orgfdc2d7d">libopencm3 or STM HAL</h2>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb9ceddf">
+<h2 id="orgb9ceddf">STM32Cube Project</h2>
+<ol>
+<li>Create STM32Cube project</li>
+<li>Select board</li>
+<li>Give project Name</li>
+<li>Select target C++</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-org81bbd93">
+<h2 id="org81bbd93">Hello World</h2>
+<div class="outline-text-2" id="text-org81bbd93">
+</div>
+</section>
+<section id="slide-org35c9020">
+<h3 id="org35c9020">Write Program</h3>
+</section>
+<section id="slide-org98c0e54">
+<h3 id="org98c0e54">Compliling</h3>
+</section>
+<section id="slide-orgb2bf9fa">
+<h3 id="orgb2bf9fa">Linking</h3>
+</section>
+<section id="slide-org0a3878b">
+<h3 id="org0a3878b">Loading firmware to target</h3>
+<div class="outline-text-3" id="text-org0a3878b">
+</div>
+</section>
+<section id="slide-org490a42a">
+<h4 id="org490a42a">Converting to binary</h4>
+<p>
+ELf file consists of additional header informatio. but to load binary on target flash we need to strip down this 
+additional information. 
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><code trim>
+arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
+
+</code></pre>
+</div>
+</section>
+<section id="slide-org0f634a4">
+<h4 id="org0f634a4">Programming Controller</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><code trim>st-link_cli -C SWD -P firmware.bin <span style="color: #a45bad;">0x8000000</span> -V <span style="color: #2d9574;">"after_programming"</span>
+
+</code></pre>
+</div>
+<p>
+Linker scripts describes the
+</p>
+</section>
+<section id="slide-org0b57b48">
+<h3 id="org0b57b48">Debug</h3>
+<div class="outline-text-3" id="text-org0b57b48">
+</div>
+</section>
+<section id="slide-org178f50e">
+<h4 id="org178f50e">Start GDB server</h4>
+</section>
+<section id="slide-orgea2119f">
+<h4 id="orgea2119f">load elf</h4>
+</section>
+<section id="slide-orgb342cc8">
+<h4 id="orgb342cc8">Debug</h4>
+</section>
+</section>
+<section>
+<section id="slide-org1742e9d">
+<h2 id="org1742e9d">C++ 14</h2>
+<p>
+C++ standard evolved more rapidly after release of 2011
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgfc28030">
+<h2 id="orgfc28030">Use namespece</h2>
+<p>
+Explain how we can use namespace to simplify naming of common static functions.
+#+SRC<sub>BEGIN</sub> C++
+</p>
+
+<p>
+#+SRC<sub>END</sub>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd2dd826">
+<h2 id="orgd2dd826">static asserts</h2>
+<p>
+This will help in compile time catching of errors.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgc3bb1e4">
+<h2 id="orgc3bb1e4">Mixing C and C++  libraries</h2>
+</section>
+</section>
+<section>
+<section id="slide-org1c77210">
+<h2 id="org1c77210">Referances</h2>
+<div class="outline-text-2" id="text-org1c77210">
+</div>
+</section>
+<section id="slide-org8bc5367">
+<h3 id="org8bc5367">Gnu C</h3>
+<div class="outline-text-3" id="text-org8bc5367">
+</div>
+</section>
+<section id="slide-org8979949">
+<h4 id="org8979949">Predefined macros</h4>
+<p>
+<a href="https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html">https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html</a>
+</p>
+</section>
+<section id="slide-org1acf5de">
+<h3 id="org1acf5de">Keil library</h3>
+<div class="outline-text-3" id="text-org1acf5de">
+</div>
+</section>
+<section id="slide-org803a086">
+<h4 id="org803a086">run time library support</h4>
+<p>
+<a href="http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm">http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm</a>
+</p>
+
+<p>
+C++ libraries need C libraries for target specific support.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
