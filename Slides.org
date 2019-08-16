@@ -113,7 +113,80 @@ Explain how we can use namespace to simplify naming of common static functions.
 ** const_cast
 * static asserts 
 This will help in compile time catching of errors.
-* Mixing C and C++  libraries 
+* scoped enums
+An enumeration is a distinct type whose values are restricted to a range of values.
+Intenally enumerations are of integer type. But C++ enumeration are more strongly typed compared to C. In C enum and interger are 
+interchangeble but in C++ not unless explicitly casted.
+** Size of enumerations
+Starting from C++ 11 we can now tell compiler to allocate specific size of enumerations constans. This will help in communication 
+protocols parser we can directly use enumerations values in transmit or recieve buffer.
+
+#+BEGIN_SRC  C
+#include <stdio.h>
+enum command { ON, OFF};
+enum command c;
+
+int main ()
+{
+  printf ("Hello World %d",sizeof(c));
+
+  return 0;
+}
+
+#+END_SRC
+
+** Size of scoped enumerations
+#+BEGIN_SRC C++ 
+#include <iostream>
+
+enum class command : char { ON, OFF};
+enum class functioncode : short { READ, WRTE, UPDATE };
+
+int main ()
+{
+  std::cout << "scoped enum with size for command = "
+  << sizeof(command) << std::endl ;
+  std::cout << "scoped enum with size for functioncode = "
+ << sizeof(functioncode) << std::endl ;
+  return 0;
+}
+#+END_SRC
+[[https://onlinegdb.com/BkplLLN4r][code]]
+* User defined literals
+** Temperature conversion
+* Delete functions
+For specific device classes we don't want to create duplicate copy of same peripheral object. 
+We can make sure nobody can accidently copy object we will delete copy constructor.
+
+#+BEGIN_SRC
+
+#+END_SRC
+
+* Declaring function pointers
+
+
+#+BEGIN_SRC
+typedef bool (*Transmit)(char *);
+
+using Transmit = bool(*)(char *);
+#+END_SRC
+
+
+* Mixing C and C++  libraries
+C++ compiler will use name mangeling hence functions name used by user will have diffrent name for compiler. Hence if you
+ want to use a function from C library we should tell compiler not to change its name by telling compiler for C linkage.
+
+#+BEGIN_SRC
+extern int C_library_function(void);
+#+END_SRC 
+
+To do this on entire header file with exported functions we can used
+
+#+BEGIN_SRC
+
+extern int C_library_function(void);
+#+END_SRC 
+
 * Templates
 * std::Array
 * std::tuple
