@@ -52,6 +52,20 @@ https://my.st.com/content/my_st_com/en/products/development-tools/software-devel
 Download st link utility from 
 https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html
 
+* GNU-MCU installation
+1. https://github.com/gnu-mcu-eclipse/windows-build-tools/releases/download/v2.12-20190422/gnu-mcu-eclipse-windows-build-tools-2.12-20190422-1053-win64.zip
+
+2. Test echo command
+
+3. Get Eclipse for MCU https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/download/v4.5.1-20190101-2018-12/20190101-2023-gnumcueclipse-4.5.1-2018-12-R-win32.win32.x86_64.zip
+
+This has plugins pre installed
+
+4. GNU Toolchain installation
+https://gnu-mcu-eclipse.github.io/toolchain/arm/install/
+
+5. Debugging
+https://gnu-mcu-eclipse.github.io/debug/openocd/
 * Installing GCC cross compiler
 1. Go to the https://developer.arm.com 
 2. Click on Tools and software >> Open source Software >> GNU toolchain
