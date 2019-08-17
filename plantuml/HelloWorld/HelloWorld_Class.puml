@@ -1,0 +1,46 @@
+@startuml Helloworld_Class
+
+namespace stm32f767.Usart {
+
+enum eWordlen {
+    7_BITS
+    8_BITS
+    9_BITS
+}
+
+enum eParity {
+    NONE
+    ODD
+    EVEN
+}
+enum eMode {
+    RX
+    TX
+    RX_TX
+}
+
+enum eFlowControl {
+    NONE
+    RTS
+    CTS
+    RTS_CTS
+}
+class Settings {
+    +Settings()
+    +uint32_t baudrate
+    +uint32_t stopbit
+    +eWordlen datalen
+    +eParity parity 
+    +eMode mode 
+}
+
+Class Uart3 {
+    +Uart()
+    +bool Initialize() 
+    +bool Initialize(Settings ) 
+    -bool Init(Settings) 
+    -Settings s
+}
+}
+
+@enduml

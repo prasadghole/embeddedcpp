@@ -86,11 +86,17 @@ We will write hello world program which will print "Hello World of C++ " sting t
 #+BEGIN_NOTES
 Explain virtual com port.
 #+END_NOTES
+* Design
+[[./images/HelloWorld_Class.png]]
+
+* Write a Program
 
 * Build
 *** Write Program
 *** Compiling
 *** Linking
+Linker file 
+
 * Flash 
 ** Converting to binary
 ELf file consists of additional header information but to load binary on target flash we need to strip down this 
@@ -203,6 +209,7 @@ extern int C_library_function(void);
 
 * Templates
 * std::Array
+* std::bitset
 * std::tuple
 * Referances
 ** Gnu C 
