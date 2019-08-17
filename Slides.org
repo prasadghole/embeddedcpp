@@ -191,6 +191,14 @@ typedef bool (*Transmit)(char *);
 using Transmit = bool(*)(char *);
 #+END_SRC
 
+* Object Orinted programming 
+** Operator overloading
+#+BEGIN_SRC C++
+
+return_type operator operator_symbol (list of parameters)
+
+#+END_SRC
+** Exercise Toggle gpio pin
 
 * Mixing C and C++  libraries
 C++ compiler will use name mangeling hence functions name used by user will have diffrent name for compiler. Hence if you
@@ -220,3 +228,14 @@ https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html
 http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm
 
 C++ libraries need C libraries for target specific support.
+* Program List
+** Hello World 1
+Introduce students to basic C++ development process by showing Hello world string on serial port using virtual com
+port of nucleo platform.
+*** Exercise 
+1. Twick program for another serial port.
+2. Try diffrent settings.
+
+** Hello World 2 
+Constructor overloading to use non default baud rate settings.
+
