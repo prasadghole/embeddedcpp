@@ -1,0 +1,14 @@
+* GNU Windows Tools
+* Stm32cubeIDE project C++
+** Project Manager 
+*** Copy only necessary library file
+*** Generate peripheral initialization as pair of c/h files
+** Advance settings
+* Nucleo F767 board
+UART2 Tx CN9 Pin6 
+UART2 Rx CN9 Pin8 or Pin4 ??
+
+push button. Port B Pin 13  EXTI_Line15_10 line is connected to 
+LED 1 Port B pin 0
+LED 2 Port B pin 7
+LED 3 Port B pin 14

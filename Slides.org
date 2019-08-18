@@ -115,6 +115,14 @@ st-link_cli -C SWD -P firmware.bin 0x8000000 -V "after_programming"
 ** Start debug server
 ** load elf
 ** Debug
+* C vs C++
+** Typesafty
+** Zero cost abstraction
+** Imperative vs Declarative programming paradigm
+#+BEGIN_NOTES
+https://tylermcginnis.com/imperative-vs-declarative-programming/
+#+END_NOTES
+
 * const
 
 * Use namespece
@@ -267,3 +275,12 @@ api.
 *** overload constructor to take non default settings
 
 ** GPIO with bitset
+
+** GPIO with interrupt
+How to integrate interrupt handlers. We will show case using member function.
+
+*** Exercise 
+ISR handlers can be made using static functions.
+*** Exercise 
+GPIO class is interface is mixture of pin vs port functons. Need to refactor so that pin and functons are binded 
+togethor.
