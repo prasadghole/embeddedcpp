@@ -252,3 +252,5 @@ https://github.com/prasadghole/embeddedCppTrainingProjects/releases/tag/Serial_1
 
 *** Exercise 
 Implement class for Uart Port 3
+
+https://github.com/prasadghole/embeddedCppTrainingProjects/tree/master/SerialPort_Interface_AllUart
