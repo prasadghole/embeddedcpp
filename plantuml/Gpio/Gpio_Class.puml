@@ -1,0 +1,77 @@
+@startuml Gpio_class
+
+namespace stm32f767.Gpio {
+
+    enum eMode {
+        INPUT 
+        OUTPUT_PP 
+        OUTPUT_OD
+        AF_PP
+        AD_OD
+        ANANLOG
+        IT_RISING
+        IT_FAILING
+        IT_RISING_FAILING
+        EVENT_RISING
+        EVENT_FAILING
+        EVENT_RISING_FAILING
+    }
+
+    enum ePull {
+        NONE
+        UP
+        DOWN
+    }
+    enum eSpeed {
+        LOW
+        MEDIUM
+        HIGH
+        VERY_HIGH
+    }
+
+    enum eFlowControl {
+        NONE
+        RTS
+        CTS
+        RTS_CTS
+    }
+
+    abstract class IGpio {
+        +Gpio()
+       {abstract} +bool Initialize()
+       {abstract} +bool Set(uint16 pin)
+       {abstract} +bool Clear(uint16 pin)
+       {abstract} +bool Toggle(uint16 pin)
+    }
+
+    Class PortA {
+        +PortA()
+       {abstract} +bool Initialize()
+       {abstract} +bool Set(uint16 pin)
+       {abstract} +bool Clear(uint16 pin)
+       {abstract} +bool Toggle(uint16 pin)
+       -GPIO_TypeDef * m_member
+    }
+
+    Class PortB {
+        +PortB()
+       {abstract} +bool Initialize()
+       {abstract} +bool Set(uint16 pin)
+       {abstract} +bool Clear(uint16 pin)
+       {abstract} +bool Toggle(uint16 pin)
+       -GPIO_TypeDef * m_member
+    }
+    Class PortC {
+        +PortC()
+       {abstract} +bool Initialize()
+       {abstract} +bool Set(uint16 pin)
+       {abstract} +bool Clear(uint16 pin)
+       {abstract} +bool Toggle(uint16 pin)
+       -GPIO_TypeDef * m_member
+    }
+    IGpio <|-- PortA
+    IGpio <|-- PortB
+    IGpio <|-- PortC
+}
+
+@enduml

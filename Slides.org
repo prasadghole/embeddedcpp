@@ -254,3 +254,16 @@ https://github.com/prasadghole/embeddedCppTrainingProjects/releases/tag/Serial_1
 Implement class for Uart Port 3
 
 https://github.com/prasadghole/embeddedCppTrainingProjects/tree/master/SerialPort_Interface_AllUart
+
+** GPIO Class
+Mostly this can be exercise for students. Instead of createing pin wise subclasses we can create port wise classes.
+[[./images/Gpio_Class.png]]
+
+*** Exercise 
+Create a wrapper class (**adapter pattern**) so that for every board type we don't need to pass pin every time  we call 
+api.
+
+*** Overload initialization functions.
+*** overload constructor to take non default settings
+
+** GPIO with bitset
