@@ -1,0 +1,67 @@
+@startuml SerialPort_Interface
+
+namespace stm32f767.Usart {
+
+    enum eWordlen {
+        7_BITS
+        8_BITS
+        9_BITS
+    }
+
+    enum eParity {
+        NONE
+        ODD
+        EVEN
+    }
+    enum eMode {
+        RX
+        TX
+        RX_TX
+    }
+
+    enum eFlowControl {
+        NONE
+        RTS
+        CTS
+        RTS_CTS
+    }
+    class Settings {
+        +Settings()
+        +uint32_t baudrate
+        +uint32_t stopbit
+        +eWordlen datalen
+        +eParity parity 
+        +eMode mode 
+    }
+    abstract class IUsart {
+        +Uart()
+       {abstract} +bool Initialize()
+       {abstract} +bool Transmit(uint_8 * buffer, uint32_t len)
+       # Settings s
+    }
+
+
+    Class Uart3 {
+        +Uart3()
+        +bool Initialize() 
+        +bool Initialize(Settings ) 
+        -bool Init(Settings) 
+         +bool Transmit(uint_8 * buffer, uint32_t len)
+        -Settings s
+    }
+
+    Class Uart2 {
+        +Uart2()
+        +bool Initialize() 
+        +bool Initialize(Settings ) 
+        -bool Init(Settings) 
+         +bool Transmit(uint_8 * buffer, uint32_t len)
+        -Settings s
+    }
+
+    IUsart <|-- Uart3
+    IUsart <|-- Uart2
+    
+}
+
+@enduml

@@ -115,6 +115,8 @@ st-link_cli -C SWD -P firmware.bin 0x8000000 -V "after_programming"
 ** Start debug server
 ** load elf
 ** Debug
+* const
+
 * Use namespece
 Explain how we can use namespace to simplify naming of common static functions.
 
@@ -239,3 +241,14 @@ port of nucleo platform.
 ** Hello World 2 
 Constructor overloading to use non default baud rate settings.
 
+** Serial Port Interface 
+   [[./images/SerialPort_Interface.png]]
+
+We will now start exploring object oriented programmin paradigms.
+
+Till now for every uart change we have to create individual objects of individual classe. Using inheritance feature we will 
+create a base class interface for uart which then be overridden by individual subclasses.
+https://github.com/prasadghole/embeddedCppTrainingProjects/releases/tag/Serial_1
+
+*** Exercise 
+Implement class for Uart Port 3
