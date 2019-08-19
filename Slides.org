@@ -175,6 +175,25 @@ format like intel hex or bin which then can be loaded at non volatile memory loc
 
 ** Execution
    Upon reset controller will start executing text section loaded at reset address.
+* Linking
+** Script
+The linker script is a file containing the description of the memory sections in the target, which need to be known in advance 
+in order for the linker to place the symbols in the correct sections in flash, and instruct the firmware components about special 
+locations in the memory mapping area that can be referenced in the code. 
+#+REVEAL: split
+The file is recognizable by its .ld extension, and it is written in a specific language. As a rule of thumb, all the symbols from every 
+single compiled object are grouped in the sections of the final executable image.
+** Custom Sections
+Beside standard sections we can instruct linker to reserve custom sectors. 
+
+For eg. To calculate CRC of flash image we need to make sure unused sectors are filled with known values. 
+
+#+BEGIN_SRC C
+const uint8_t
+__attribute__((section(“.crcfill”)))
+private_key[100] = {0};
+#+END_SRC
+
 * Language Features
 1. Statically typed
 2. Support procedural , object oriented and generic programming paradigms
