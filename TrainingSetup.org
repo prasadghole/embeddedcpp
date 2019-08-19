@@ -12,3 +12,8 @@ push button. Port B Pin 13  EXTI_Line15_10 line is connected to
 LED 1 Port B pin 0
 LED 2 Port B pin 7
 LED 3 Port B pin 14
+* Nucleo F103RE
+
+* Nucleo L073RZ 
+** Firmware Package
+1. stm32cube_fw_io_v1110.zip

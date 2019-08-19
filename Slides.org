@@ -2,7 +2,8 @@
 # +Author: Prasad Ghole
 #+Email: prasad.ghole@ltts.com
 #+REVEAL_THEME: night
-#+OPTIONS: toc:nil num:nil timestamp:nil 
+#+OPTIONS: toc:nil num:nil timestamp:nil center:false
+#+REVEAL_EXTRA_CSS: ./mystyle.css
 * Introduction to C++
 * Why C++ over C
 ** C++ is superset of C
@@ -136,24 +137,44 @@ arm-none-eabi-g++ --version
  
 #+END_SRC
 * Build Process
-** Pre Processing
+  [[./images/buildProcess.png]]
+** Cross compilation
+Due to limited resources available on target hardware for running build tools development is mostly done on workstation or PC
+with higher memory and speed. This machine is called host machine and it runs the build tool but generate binary which will 
+run on different (mostly microcontroller) hardware. 
+This process of generating code for different target is called cross compilation.
 ** Compiling
-#+BEGIN_SRC shell :exports code
-g++ --std=c++y hello.cpp -o hello.cpp
-#+END_SRC
-
-#+RESULTS:
-| Microsoft                           | Windows | [Version  | 10.0.16299.785] |     |        |           |
-| (c)                                 |    2017 | Microsoft | Corporation.    | All | rights | reserved. |
-|                                     |         |           |                 |     |        |           |
-| c:\Users\20006401\cpptraining>More? |         |           |                 |     |        |           |
-
+   Compiler translate source code into machine code for individual source file. 
+   Output of compilation process is object code.
 ** Linking
+Linker compose multiple objects file into one single executable file. For gcc toolchain output is mostly ELF.
+**Executable Linker Format**
+ELF file contains different sections
+ 1. text
+This section contains executable instructions of program. Controller's program counter always access instructions from this
+memory area.
+ 2. rodata
+Contains read only values like constants. This section can be mapped to read only memory 
+area.
+ 3. data
+Containing the values of all the initialized variables of the program, accessible in the read/write mode at runtime. 
+It is a section that contains all the variables, static or global, that have been initialized in the code. 
+This area is remap to writable memory area as these values will be changing during program life time.
+ 4. bss (Blocks started by Symbol)
+This section reserved all uninitialized variables and objects accessible during program runtime for modification. 
+Because there in no values here ELF only describes this section but do not provide any contents. Startup code should 
+initialize bss section to zero.
 
-Converting C++ source code in machine language which can be exectured by underline microprocessor
-is called as build process.
+#+REVEAL: split
+
+Every embedded target has different memory layout for program and data memory. Hence during linking process a custom linker 
+script describing memory layout of target should be provided.
 ** Loading 
+ELF file will be loaded to target system using programming tools or debug probes. ELF files need to be converted to 
+format like intel hex or bin which then can be loaded at non volatile memory location accessible by program counter.
+
 ** Execution
+   Upon reset controller will start executing text section loaded at reset address.
 * Language Features
 1. Statically typed
 2. Support procedural , object oriented and generic programming paradigms
