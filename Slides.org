@@ -4,7 +4,65 @@
 #+REVEAL_THEME: night
 #+OPTIONS: toc:nil num:nil timestamp:nil 
 * Introduction to C++
-* Devlopment tools
+* Why C++ over C
+** C++ is superset of C
+C++ is almost a super set of C. If you write any C source code or C source file. C++ compiler will acts as C compiler.
+This helps in smooth migration of existing C to C++.
+** Default arguments to functions
+** Function name overloading
+** References
+   A C++ reference is identical to C pointers. But they are safer as they can't be null and can't be uninitialized.
+** Classes and struct
+Classes are similar to structs. A member function is a function which take pointer to 
+object of class as an implicit parameter. 
+Class with member function is similar to C struct and a function which
+takes structs as argument.
+
+#+REVEAL: split
+
+#+BEGIN_SRC C++
+class A {
+public:
+int GetX();
+private:
+int x;
+
+}
+
+int A::GetX()
+{
+return x;
+}
+
+#+END_SRC
+
+#+BEGIN_SRC C
+struct A {
+int x;
+}
+
+int GetX(struct  A * this)
+{
+return this->x;
+} 
+#+END_SRC
+
+** Constructors and destructors
+These are member function that is guaranteed to get called when objects are created and destroyed.
+This make sure all objects are properly initialized and destroyed. This avoids resource leaks and initilization bugs. 
+There is no way in C to make this implicitly.
+
+#+BEGIN_NOTES
+Discuss object creation on dynamic memory pool.
+#+END_NOTES
+
+** Namespaces
+C++ namespace allow name reuse in different contexts. This avoids lengthy names with module/context prefixes like C.
+
+** Operator overloading 
+A C++ compiler replaces a function call when encounters an overloaded operator. 
+Operator overloading improves the code readability if used properly.
+* Development tools
 
 
  | Vendor | C++ Standard |
@@ -31,17 +89,15 @@
   3. Mass storage
   4. Virtual COM port
   5. Flexible power supply options
-* Debug Tools
-** OpenOCD and STM GDB server
-[[http://openocd.org/doc/html/index.html]]
-
-OpenOCD is a Open On-Chip debugger that provides programming,debugging  boudry-scan
-testing for embedded device. It acts as a server and acceptss incoming
-connection from GDB via port 3333 or telnet port 4444.
-*** Setup
-[[./images/debugserver.png]]
-
-* stlink 
+** Nucleo-L073RZ
+   [[./images/nucleo-L073rz.png]]     
+** Features
+  1. 1 User LED
+  2. On board ST Link extension board for easy debugging
+  3. Mass storage
+  4. Virtual COM port
+  5. Flexible power supply options
+* Programming tools stlink 
 ** WARNING
 Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
 ** ST link usb drive
@@ -52,27 +108,26 @@ https://my.st.com/content/my_st_com/en/products/development-tools/software-devel
 Download st link utility from 
 https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html
 
-* GNU-MCU installation
-1. https://github.com/gnu-mcu-eclipse/windows-build-tools/releases/download/v2.12-20190422/gnu-mcu-eclipse-windows-build-tools-2.12-20190422-1053-win64.zip
+* Debug Tools
+** OpenOCD and STM GDB server
+[[http://openocd.org/doc/html/index.html]]
 
-2. Test echo command
+OpenOCD is a Open On-Chip debugger that provides programming,debugging  boudry-scan
+testing for embedded device. It acts as a server and acceptss incoming
+connection from GDB via port 3333 or telnet port 4444.
+*** Setup
+[[./images/debugserver.png]]
 
-3. Get Eclipse for MCU https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/download/v4.5.1-20190101-2018-12/20190101-2023-gnumcueclipse-4.5.1-2018-12-R-win32.win32.x86_64.zip
-
-This has plugins pre installed
-
-4. GNU Toolchain installation
-https://gnu-mcu-eclipse.github.io/toolchain/arm/install/
-
-5. Debugging
-https://gnu-mcu-eclipse.github.io/debug/openocd/
-* Installing GCC cross compiler
+* GCC cross compiler
 1. Go to the https://developer.arm.com 
 2. Click on Tools and software >> Open source Software >> GNU toolchain
 #+REVEAL: split
 3. Downlaod ARM GNU embedded toolchain as per your host platform (only 32 bit toolchains are available now)
 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 
+* stm32CubeIDE
+ST has provided and eclipse based IDE which uses ARM Gcc backend to cross compile firmware. We will use this IDE to write , debug our 
+firmware source code.
 * Verify installation
   
 #+BEGIN_SRC shell :exports code :eval yes
@@ -80,6 +135,38 @@ https://developer.arm.com/tools-and-software/open-source-software/developer-tool
 arm-none-eabi-g++ --version
  
 #+END_SRC
+* Build Process
+** Pre Processing
+** Compiling
+#+BEGIN_SRC shell :exports code
+g++ --std=c++y hello.cpp -o hello.cpp
+#+END_SRC
+
+#+RESULTS:
+| Microsoft                           | Windows | [Version  | 10.0.16299.785] |     |        |           |
+| (c)                                 |    2017 | Microsoft | Corporation.    | All | rights | reserved. |
+|                                     |         |           |                 |     |        |           |
+| c:\Users\20006401\cpptraining>More? |         |           |                 |     |        |           |
+
+** Linking
+
+Converting C++ source code in machine language which can be exectured by underline microprocessor
+is called as build process.
+** Loading 
+** Execution
+* Language Features
+1. Statically typed
+2. Support procedural , object oriented and generic programming paradigms
+3. Compiled
+4. Versatile standard library
+5. Encapsulation
+6. Inheritance
+7. Polymorphism 
+
+* Literals
+Literals are tokens of C++ program that represent constant values embedded in source code.
+*** Interger Literals
+| Literal |
 * Hello World
 We will write hello world program which will print "Hello World of C++ " sting to serial port using micro controller UART3.
 

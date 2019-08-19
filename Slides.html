@@ -28,13 +28,113 @@
 <section id="sec-title-slide"><h1 class="title">Embedded C++</h1>
 </section>
 <section>
-<section id="slide-orga22562c">
-<h2 id="orga22562c">Introduction to C++</h2>
+<section id="slide-org3153054">
+<h2 id="org3153054">Introduction to C++</h2>
 </section>
 </section>
 <section>
-<section id="slide-org7387097">
-<h2 id="org7387097">Devlopment tools</h2>
+<section id="slide-org2935d1e">
+<h2 id="org2935d1e">Why C++ over C</h2>
+<div class="outline-text-2" id="text-org2935d1e">
+</div>
+</section>
+<section id="slide-org3a0b1d0">
+<h3 id="org3a0b1d0">C++ is superset of C</h3>
+<p>
+C++ is almost a super set of C. If you write any C source code or C source file. C++ compiler will acts as C compiler.
+This helps in smooth migration of existing C to C++.
+</p>
+</section>
+<section id="slide-org855152f">
+<h3 id="org855152f">Default arguments to functions</h3>
+</section>
+<section id="slide-orga6b658f">
+<h3 id="orga6b658f">Function name overloading</h3>
+</section>
+<section id="slide-orgc1318b8">
+<h3 id="orgc1318b8">References</h3>
+<p>
+A C++ reference is identical to C pointers. But they are safer as they can't be null and can't be uninitialized.
+</p>
+</section>
+<section id="slide-orgd55e2c3">
+<h3 id="orgd55e2c3">Classes and struct</h3>
+<p>
+Classes are similar to structs. A member function is a function which take pointer to 
+object of class as an implicit parameter. 
+Class with member function is similar to C struct and a function which
+takes structs as argument.
+</p>
+
+</section>
+<section id="slide-orgd55e2c3-split">
+
+<div class="org-src-container">
+
+<pre  class="src src-C++"><code trim><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">A</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold;">public</span>:
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">GetX</span><span style="color: #bc6ec5;">()</span>;
+<span style="color: #4f97d7; font-weight: bold;">private</span>:
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x</span>;
+
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #a45bad;">A</span>::<span style="color: #bc6ec5; font-weight: bold;">GetX</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold;">return</span> x;
+<span style="color: #4f97d7;">}</span>
+
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-C"><code trim><span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">A</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">GetX</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">struct</span>  <span style="color: #ce537a; font-weight: bold;">A</span> * <span style="color: #7590db;">this</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold;">return</span> this-&gt;x;
+<span style="color: #4f97d7;">}</span> 
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org72723d0">
+<h3 id="org72723d0">Constructors and destructors</h3>
+<p>
+These are member function that is guaranteed to get called when objects are created and destroyed.
+This make sure all objects are properly initialized and destroyed. This avoids resource leaks and initilization bugs. 
+There is no way in C to make this implicitly.
+</p>
+
+<aside class="notes">
+<p>
+Discuss object creation on dynamic memory pool.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org77f7b58">
+<h3 id="org77f7b58">Namespaces</h3>
+<p>
+C++ namespace allow name reuse in different contexts. This avoids lengthy names with module/context prefixes like C.
+</p>
+
+</section>
+<section id="slide-org18adb42">
+<h3 id="org18adb42">Operator overloading</h3>
+<p>
+A C++ compiler replaces a function call when encounters an overloaded operator. 
+Operator overloading improves the code readability if used properly.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgb62762d">
+<h2 id="orgb62762d">Development tools</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -74,21 +174,21 @@
 </section>
 </section>
 <section>
-<section id="slide-org3af75ee">
-<h2 id="org3af75ee">Evaluation Boards</h2>
-<div class="outline-text-2" id="text-org3af75ee">
+<section id="slide-org43913a3">
+<h2 id="org43913a3">Evaluation Boards</h2>
+<div class="outline-text-2" id="text-org43913a3">
 </div>
 </section>
-<section id="slide-org1bfd2d5">
-<h3 id="org1bfd2d5">Nucleo-F767ZI</h3>
+<section id="slide-org4884b69">
+<h3 id="org4884b69">Nucleo-F767ZI</h3>
 
 <div class="figure">
 <p><img src="./images/nucleo-f767.png" alt="nucleo-f767.png" />
 </p>
 </div>
 </section>
-<section id="slide-org62bce7b">
-<h3 id="org62bce7b">Features</h3>
+<section id="slide-org1938e4e">
+<h3 id="org1938e4e">Features</h3>
 <ol>
 <li>3 User LED</li>
 <li>On board ST Link extension board for easy debugging</li>
@@ -99,16 +199,16 @@
 
 </ol>
 </section>
-<section id="slide-orgbd2565c">
-<h3 id="orgbd2565c">Nucleo-F303RE</h3>
+<section id="slide-org73fca02">
+<h3 id="org73fca02">Nucleo-F303RE</h3>
 
 <div class="figure">
 <p><img src="./images/nucleo-f303.png" alt="nucleo-f303.png" />
 </p>
 </div>
 </section>
-<section id="slide-org2e80234">
-<h3 id="org2e80234">Features</h3>
+<section id="slide-org189f002">
+<h3 id="org189f002">Features</h3>
 <ol>
 <li>1 User LED</li>
 <li>On board ST Link extension board for easy debugging</li>
@@ -118,15 +218,52 @@
 
 </ol>
 </section>
-</section>
-<section>
-<section id="slide-orgd7f656e">
-<h2 id="orgd7f656e">Debug Tools</h2>
-<div class="outline-text-2" id="text-orgd7f656e">
+<section id="slide-org0fb6457">
+<h3 id="org0fb6457">Nucleo-L073RZ</h3>
+
+<div class="figure">
+<p><img src="./images/nucleo-L073rz.png" alt="nucleo-L073rz.png" />     
+</p>
 </div>
 </section>
-<section id="slide-org64184fd">
-<h3 id="org64184fd">OpenOCD and STM GDB server</h3>
+</section>
+<section>
+<section id="slide-orgbff0af6">
+<h2 id="orgbff0af6">Programming tools stlink</h2>
+<div class="outline-text-2" id="text-orgbff0af6">
+</div>
+</section>
+<section id="slide-orgf808e78">
+<h3 id="orgf808e78">WARNING</h3>
+<p>
+Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
+</p>
+</section>
+<section id="slide-orgc131af4">
+<h3 id="orgc131af4">ST link usb drive</h3>
+<p>
+Download usb driver from 
+<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html</a>
+ Run stlink<sub>winusb</sub><sub>install</sub> batch file to install driver.
+</p>
+</section>
+<section id="slide-orga8c3942">
+<h3 id="orga8c3942">ST link utilities</h3>
+<p>
+Download st link utility from 
+<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org306df7f">
+<h2 id="org306df7f">Debug Tools</h2>
+<div class="outline-text-2" id="text-org306df7f">
+</div>
+</section>
+<section id="slide-org77f419a">
+<h3 id="org77f419a">OpenOCD and STM GDB server</h3>
 <p>
 <a href="http://openocd.org/doc/html/index.html">http://openocd.org/doc/html/index.html</a>
 </p>
@@ -137,8 +274,8 @@ testing for embedded device. It acts as a server and acceptss incoming
 connection from GDB via port 3333 or telnet port 4444.
 </p>
 </section>
-<section id="slide-org660267b">
-<h4 id="org660267b">Setup</h4>
+<section id="slide-org67759cc">
+<h4 id="org67759cc">Setup</h4>
 
 <div class="figure">
 <p><img src="./images/debugserver.png" alt="debugserver.png" />
@@ -148,77 +285,15 @@ connection from GDB via port 3333 or telnet port 4444.
 </section>
 </section>
 <section>
-<section id="slide-org62745b4">
-<h2 id="org62745b4">stlink</h2>
-<div class="outline-text-2" id="text-org62745b4">
-</div>
-</section>
-<section id="slide-orgf69c42d">
-<h3 id="orgf69c42d">WARNING</h3>
-<p>
-Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
-</p>
-</section>
-<section id="slide-org851fb56">
-<h3 id="org851fb56">ST link usb drive</h3>
-<p>
-Download usb driver from 
-<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1564137466456.product=STSW-LINK009.version=2.0.1.html</a>
- Run stlink<sub>winusb</sub><sub>install</sub> batch file to install driver.
-</p>
-</section>
-<section id="slide-org7484c2c">
-<h3 id="org7484c2c">ST link utilities</h3>
-<p>
-Download st link utility from 
-<a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html</a>
-</p>
-
-</section>
-</section>
-<section>
-<section id="slide-org3de7f6b">
-<h2 id="org3de7f6b">GNU-MCU installation</h2>
-<ol>
-<li><a href="https://github.com/gnu-mcu-eclipse/windows-build-tools/releases/download/v2.12-20190422/gnu-mcu-eclipse-windows-build-tools-2.12-20190422-1053-win64.zip">https://github.com/gnu-mcu-eclipse/windows-build-tools/releases/download/v2.12-20190422/gnu-mcu-eclipse-windows-build-tools-2.12-20190422-1053-win64.zip</a></li>
-
-<li>Test echo command</li>
-
-<li>Get Eclipse for MCU <a href="https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/download/v4.5.1-20190101-2018-12/20190101-2023-gnumcueclipse-4.5.1-2018-12-R-win32.win32.x86_64.zip">https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/download/v4.5.1-20190101-2018-12/20190101-2023-gnumcueclipse-4.5.1-2018-12-R-win32.win32.x86_64.zip</a></li>
-
-</ol>
-
-<p>
-This has plugins pre installed
-</p>
-
-<ol>
-<li>GNU Toolchain installation</li>
-
-</ol>
-<p>
-<a href="https://gnu-mcu-eclipse.github.io/toolchain/arm/install/">https://gnu-mcu-eclipse.github.io/toolchain/arm/install/</a>
-</p>
-
-<ol>
-<li>Debugging</li>
-
-</ol>
-<p>
-<a href="https://gnu-mcu-eclipse.github.io/debug/openocd/">https://gnu-mcu-eclipse.github.io/debug/openocd/</a>
-</p>
-</section>
-</section>
-<section>
-<section id="slide-orgaa6ed82">
-<h2 id="orgaa6ed82">Installing GCC cross compiler</h2>
+<section id="slide-orga068579">
+<h2 id="orga068579">GCC cross compiler</h2>
 <ol>
 <li>Go to the <a href="https://developer.arm.com">https://developer.arm.com</a></li>
 <li>Click on Tools and software &gt;&gt; Open source Software &gt;&gt; GNU toolchain</li>
 
 </ol>
 </section>
-<section id="slide-orgaa6ed82-split">
+<section id="slide-orga068579-split">
 <ol>
 <li>Downlaod ARM GNU embedded toolchain as per your host platform (only 32 bit toolchains are available now)</li>
 
@@ -230,8 +305,17 @@ This has plugins pre installed
 </section>
 </section>
 <section>
-<section id="slide-org13ab524">
-<h2 id="org13ab524">Verify installation</h2>
+<section id="slide-org515b442">
+<h2 id="org515b442">stm32CubeIDE</h2>
+<p>
+ST has provided and eclipse based IDE which uses ARM Gcc backend to cross compile firmware. We will use this IDE to write , debug our 
+firmware source code.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgea3985d">
+<h2 id="orgea3985d">Verify installation</h2>
 <div class="org-src-container">
 
 <pre  class="src src-shell"><code trim>
@@ -242,8 +326,79 @@ arm-none-eabi-g++ --version
 </section>
 </section>
 <section>
-<section id="slide-org5501cd9">
-<h2 id="org5501cd9">Hello World</h2>
+<section id="slide-org2c731c5">
+<h2 id="org2c731c5">Build Process</h2>
+<div class="outline-text-2" id="text-org2c731c5">
+</div>
+</section>
+<section id="slide-org787afea">
+<h3 id="org787afea">Pre Processing</h3>
+</section>
+<section id="slide-orga9142dc">
+<h3 id="orga9142dc">Compiling</h3>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><code trim>g++ --std=c++y hello.cpp -o hello.cpp
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org9cb4c35">
+<h3 id="org9cb4c35">Linking</h3>
+<p>
+Converting C++ source code in machine language which can be exectured by underline microprocessor
+is called as build process.
+</p>
+</section>
+<section id="slide-org14c85ac">
+<h3 id="org14c85ac">Loading</h3>
+</section>
+<section id="slide-org1815fa4">
+<h3 id="org1815fa4">Execution</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgfcbdc4e">
+<h2 id="orgfcbdc4e">Language Features</h2>
+<ol>
+<li>Statically typed</li>
+<li>Support procedural , object oriented and generic programming paradigms</li>
+<li>Compiled</li>
+<li>Versatile standard library</li>
+<li>Encapsulation</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-orged1b9b4">
+<h2 id="orged1b9b4">Literals</h2>
+<p>
+Literals are tokens of C++ program that represent constant values embedded in source code.
+</p>
+</section>
+<section id="slide-org54f2b94">
+<h4 id="org54f2b94">Interger Literals</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Literal</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-orge7a423f">
+<h2 id="orge7a423f">Hello World</h2>
 <p>
 We will write hello world program which will print "Hello World of C++ " sting to serial port using micro controller UART3.
 </p>
@@ -257,8 +412,8 @@ Explain virtual com port.
 </section>
 </section>
 <section>
-<section id="slide-org3eec743">
-<h2 id="org3eec743">Design</h2>
+<section id="slide-org49ab17f">
+<h2 id="org49ab17f">Design</h2>
 
 <div class="figure">
 <p><img src="./images/HelloWorld_Class.png" alt="HelloWorld_Class.png" />
@@ -268,25 +423,25 @@ Explain virtual com port.
 </section>
 </section>
 <section>
-<section id="slide-org6ed0050">
-<h2 id="org6ed0050">Write a Program</h2>
+<section id="slide-orge6cfc8b">
+<h2 id="orge6cfc8b">Write a Program</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org3dd4908">
-<h2 id="org3dd4908">Build</h2>
-<div class="outline-text-2" id="text-org3dd4908">
+<section id="slide-org4623c78">
+<h2 id="org4623c78">Build</h2>
+<div class="outline-text-2" id="text-org4623c78">
 </div>
 </section>
-<section id="slide-org5939c54">
-<h4 id="org5939c54">Write Program</h4>
+<section id="slide-org9bc17a9">
+<h4 id="org9bc17a9">Write Program</h4>
 </section>
-<section id="slide-org50582bb">
-<h4 id="org50582bb">Compiling</h4>
+<section id="slide-orgcc1d5db">
+<h4 id="orgcc1d5db">Compiling</h4>
 </section>
-<section id="slide-orgb360af4">
-<h4 id="orgb360af4">Linking</h4>
+<section id="slide-orga1578af">
+<h4 id="orga1578af">Linking</h4>
 <p>
 Linker file 
 </p>
@@ -294,13 +449,13 @@ Linker file
 </section>
 </section>
 <section>
-<section id="slide-orgcd1e69e">
-<h2 id="orgcd1e69e">Flash</h2>
-<div class="outline-text-2" id="text-orgcd1e69e">
+<section id="slide-org2cbf9e9">
+<h2 id="org2cbf9e9">Flash</h2>
+<div class="outline-text-2" id="text-org2cbf9e9">
 </div>
 </section>
-<section id="slide-orga51562d">
-<h3 id="orga51562d">Converting to binary</h3>
+<section id="slide-org9ac0ae8">
+<h3 id="org9ac0ae8">Converting to binary</h3>
 <p>
 ELf file consists of additional header information but to load binary on target flash we need to strip down this 
 additional information. 
@@ -313,8 +468,8 @@ arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
 </code></pre>
 </div>
 </section>
-<section id="slide-org799b841">
-<h3 id="org799b841">Programming Controller</h3>
+<section id="slide-org6693778">
+<h3 id="org6693778">Programming Controller</h3>
 <div class="org-src-container">
 
 <pre  class="src src-bash"><code trim>st-link_cli -C SWD -P firmware.bin <span style="color: #a45bad;">0x8000000</span> -V <span style="color: #2d9574;">"after_programming"</span>
@@ -323,35 +478,35 @@ arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
 </section>
 </section>
 <section>
-<section id="slide-org4e54b5a">
-<h2 id="org4e54b5a">Debug</h2>
-<div class="outline-text-2" id="text-org4e54b5a">
+<section id="slide-org2b871ea">
+<h2 id="org2b871ea">Debug</h2>
+<div class="outline-text-2" id="text-org2b871ea">
 </div>
 </section>
-<section id="slide-org378aa68">
-<h3 id="org378aa68">Start debug server</h3>
+<section id="slide-org321e59d">
+<h3 id="org321e59d">Start debug server</h3>
 </section>
-<section id="slide-orge2ed964">
-<h3 id="orge2ed964">load elf</h3>
+<section id="slide-orgf31a6da">
+<h3 id="orgf31a6da">load elf</h3>
 </section>
-<section id="slide-orgc18389f">
-<h3 id="orgc18389f">Debug</h3>
+<section id="slide-orgee1eba7">
+<h3 id="orgee1eba7">Debug</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgbb28f76">
-<h2 id="orgbb28f76">C vs C++</h2>
-<div class="outline-text-2" id="text-orgbb28f76">
+<section id="slide-org43dcdde">
+<h2 id="org43dcdde">C vs C++</h2>
+<div class="outline-text-2" id="text-org43dcdde">
 </div>
 </section>
-<section id="slide-org9bd0688">
-<h3 id="org9bd0688">Typesafty</h3>
+<section id="slide-org91e2ec3">
+<h3 id="org91e2ec3">Typesafty</h3>
 </section>
-<section id="slide-orgf21f688">
-<h3 id="orgf21f688">Zero cost abstraction</h3>
+<section id="slide-org9f2e4c1">
+<h3 id="org9f2e4c1">Zero cost abstraction</h3>
 </section>
-<section id="slide-org950088b">
-<h3 id="org950088b">Imperative vs Declarative programming paradigm</h3>
+<section id="slide-org8b5020f">
+<h3 id="org8b5020f">Imperative vs Declarative programming paradigm</h3>
 <aside class="notes">
 <p>
 <a href="https://tylermcginnis.com/imperative-vs-declarative-programming/">https://tylermcginnis.com/imperative-vs-declarative-programming/</a>
@@ -362,14 +517,14 @@ arm-none-eabi-objcopy -I elf -O binary firmware.elf firmware.bin
 </section>
 </section>
 <section>
-<section id="slide-orga485069">
-<h2 id="orga485069">const</h2>
+<section id="slide-org84230f5">
+<h2 id="org84230f5">const</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-orgc6f80ce">
-<h2 id="orgc6f80ce">Use namespece</h2>
+<section id="slide-orgfea8641">
+<h2 id="orgfea8641">Use namespece</h2>
 <p>
 Explain how we can use namespace to simplify naming of common static functions.
 </p>
@@ -385,61 +540,61 @@ Explain how we can use namespace to simplify naming of common static functions.
 </section>
 </section>
 <section>
-<section id="slide-org150c1d0">
-<h2 id="org150c1d0">Strongly typed</h2>
-<div class="outline-text-2" id="text-org150c1d0">
+<section id="slide-org78abf06">
+<h2 id="org78abf06">Strongly typed</h2>
+<div class="outline-text-2" id="text-org78abf06">
 </div>
 </section>
-<section id="slide-org8f35dd2">
-<h3 id="org8f35dd2">enum class</h3>
+<section id="slide-org0796c43">
+<h3 id="org0796c43">enum class</h3>
 </section>
 </section>
 <section>
-<section id="slide-org15c02d3">
-<h2 id="org15c02d3">Function Inline</h2>
+<section id="slide-org04cbbd5">
+<h2 id="org04cbbd5">Function Inline</h2>
 <p>
 Macros can be replaced with strongly typed
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org250cb06">
-<h2 id="org250cb06">Type Conversions</h2>
-<div class="outline-text-2" id="text-org250cb06">
+<section id="slide-orge5b4f4b">
+<h2 id="orge5b4f4b">Type Conversions</h2>
+<div class="outline-text-2" id="text-orge5b4f4b">
 </div>
 </section>
-<section id="slide-orgffc902b">
-<h3 id="orgffc902b">dynamic<sub>cast</sub></h3>
+<section id="slide-orgdf5dabe">
+<h3 id="orgdf5dabe">dynamic<sub>cast</sub></h3>
 </section>
-<section id="slide-org8bada07">
-<h3 id="org8bada07">reinterpret<sub>cast</sub></h3>
+<section id="slide-org279bd7b">
+<h3 id="org279bd7b">reinterpret<sub>cast</sub></h3>
 </section>
-<section id="slide-orgcc3009c">
-<h3 id="orgcc3009c">static<sub>cast</sub></h3>
+<section id="slide-org8f0fe14">
+<h3 id="org8f0fe14">static<sub>cast</sub></h3>
 </section>
-<section id="slide-org857469c">
-<h3 id="org857469c">const<sub>cast</sub></h3>
+<section id="slide-org33ebb45">
+<h3 id="org33ebb45">const<sub>cast</sub></h3>
 </section>
 </section>
 <section>
-<section id="slide-org65a5d59">
-<h2 id="org65a5d59">static asserts</h2>
+<section id="slide-org7625f35">
+<h2 id="org7625f35">static asserts</h2>
 <p>
 This will help in compile time catching of errors.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org6c3b5ff">
-<h2 id="org6c3b5ff">scoped enums</h2>
+<section id="slide-orgcc6b822">
+<h2 id="orgcc6b822">scoped enums</h2>
 <p>
 An enumeration is a distinct type whose values are restricted to a range of values.
 Intenally enumerations are of integer type. But C++ enumeration are more strongly typed compared to C. In C enum and interger are 
 interchangeble but in C++ not unless explicitly casted.
 </p>
 </section>
-<section id="slide-orgfc99680">
-<h3 id="orgfc99680">Size of enumerations</h3>
+<section id="slide-org61f32b9">
+<h3 id="org61f32b9">Size of enumerations</h3>
 <p>
 Starting from C++ 11 we can now tell compiler to allocate specific size of enumerations constans. This will help in communication 
 protocols parser we can directly use enumerations values in transmit or recieve buffer.
@@ -462,8 +617,8 @@ protocols parser we can directly use enumerations values in transmit or recieve 
 </div>
 
 </section>
-<section id="slide-orgf399845">
-<h3 id="orgf399845">Size of scoped enumerations</h3>
+<section id="slide-orge1779a5">
+<h3 id="orge1779a5">Size of scoped enumerations</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C++"><code trim><span style="color: #bc6ec5;">#include</span> <span style="color: #4f97d7;">&lt;</span><span style="color: #2d9574;">iostream</span><span style="color: #4f97d7;">&gt;</span>
@@ -487,18 +642,18 @@ protocols parser we can directly use enumerations values in transmit or recieve 
 </section>
 </section>
 <section>
-<section id="slide-org29189d2">
-<h2 id="org29189d2">User defined literals</h2>
-<div class="outline-text-2" id="text-org29189d2">
+<section id="slide-orgd1c210f">
+<h2 id="orgd1c210f">User defined literals</h2>
+<div class="outline-text-2" id="text-orgd1c210f">
 </div>
 </section>
-<section id="slide-orgfdfccec">
-<h3 id="orgfdfccec">Temperature conversion</h3>
+<section id="slide-orgf8907f3">
+<h3 id="orgf8907f3">Temperature conversion</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgc2654dd">
-<h2 id="orgc2654dd">Delete functions</h2>
+<section id="slide-org3f3da40">
+<h2 id="org3f3da40">Delete functions</h2>
 <p>
 For specific device classes we don't want to create duplicate copy of same peripheral object. 
 We can make sure nobody can accidently copy object we will delete copy constructor.
@@ -511,8 +666,8 @@ We can make sure nobody can accidently copy object we will delete copy construct
 </section>
 </section>
 <section>
-<section id="slide-org1501006">
-<h2 id="org1501006">Declaring function pointers</h2>
+<section id="slide-org048229a">
+<h2 id="org048229a">Declaring function pointers</h2>
 <pre  class="example">
 typedef bool (*Transmit)(char *);
 
@@ -522,13 +677,13 @@ using Transmit = bool(*)(char *);
 </section>
 </section>
 <section>
-<section id="slide-org1e18e55">
-<h2 id="org1e18e55">Object Orinted programming</h2>
-<div class="outline-text-2" id="text-org1e18e55">
+<section id="slide-org8441c5e">
+<h2 id="org8441c5e">Object Orinted programming</h2>
+<div class="outline-text-2" id="text-org8441c5e">
 </div>
 </section>
-<section id="slide-orgb2e19c3">
-<h3 id="orgb2e19c3">Operator overloading</h3>
+<section id="slide-org3fa1af5">
+<h3 id="org3fa1af5">Operator overloading</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C++"><code trim>
@@ -537,14 +692,14 @@ using Transmit = bool(*)(char *);
 </code></pre>
 </div>
 </section>
-<section id="slide-orgf4395b8">
-<h3 id="orgf4395b8">Exercise Toggle gpio pin</h3>
+<section id="slide-org7ef2ddb">
+<h3 id="org7ef2ddb">Exercise Toggle gpio pin</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-org66d1c46">
-<h2 id="org66d1c46">Mixing C and C++  libraries</h2>
+<section id="slide-orge347602">
+<h2 id="orge347602">Mixing C and C++  libraries</h2>
 <p>
 C++ compiler will use name mangeling hence functions name used by user will have diffrent name for compiler. Hence if you
  want to use a function from C library we should tell compiler not to change its name by telling compiler for C linkage.
@@ -566,49 +721,49 @@ extern int C_library_function(void);
 </section>
 </section>
 <section>
-<section id="slide-org3769652">
-<h2 id="org3769652">Templates</h2>
+<section id="slide-org1f7189c">
+<h2 id="org1f7189c">Templates</h2>
 </section>
 </section>
 <section>
-<section id="slide-org7a57a94">
-<h2 id="org7a57a94">std::Array</h2>
+<section id="slide-org852c480">
+<h2 id="org852c480">std::Array</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgb7a6772">
-<h2 id="orgb7a6772">std::bitset</h2>
+<section id="slide-orgc51913f">
+<h2 id="orgc51913f">std::bitset</h2>
 </section>
 </section>
 <section>
-<section id="slide-org38c7952">
-<h2 id="org38c7952">std::tuple</h2>
+<section id="slide-org18574d3">
+<h2 id="org18574d3">std::tuple</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgb3dca8d">
-<h2 id="orgb3dca8d">Referances</h2>
-<div class="outline-text-2" id="text-orgb3dca8d">
+<section id="slide-orgf28f419">
+<h2 id="orgf28f419">Referances</h2>
+<div class="outline-text-2" id="text-orgf28f419">
 </div>
 </section>
-<section id="slide-org393c96e">
-<h3 id="org393c96e">Gnu C</h3>
-<div class="outline-text-3" id="text-org393c96e">
+<section id="slide-orgf0a573d">
+<h3 id="orgf0a573d">Gnu C</h3>
+<div class="outline-text-3" id="text-orgf0a573d">
 </div>
 </section>
-<section id="slide-org4834370">
-<h4 id="org4834370">Predefined macros</h4>
+<section id="slide-org9259db0">
+<h4 id="org9259db0">Predefined macros</h4>
 <p>
 <a href="https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html">https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html</a>
 </p>
 </section>
-<section id="slide-org25c416f">
-<h3 id="org25c416f">Keil library</h3>
-<div class="outline-text-3" id="text-org25c416f">
+<section id="slide-org508f18b">
+<h3 id="org508f18b">Keil library</h3>
+<div class="outline-text-3" id="text-org508f18b">
 </div>
 </section>
-<section id="slide-orgfd366d0">
-<h4 id="orgfd366d0">run time library support</h4>
+<section id="slide-org3b28f4e">
+<h4 id="org3b28f4e">run time library support</h4>
 <p>
 <a href="http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm">http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm</a>
 </p>
@@ -619,20 +774,20 @@ C++ libraries need C libraries for target specific support.
 </section>
 </section>
 <section>
-<section id="slide-org9d23a49">
-<h2 id="org9d23a49">Program List</h2>
-<div class="outline-text-2" id="text-org9d23a49">
+<section id="slide-orgca846d6">
+<h2 id="orgca846d6">Program List</h2>
+<div class="outline-text-2" id="text-orgca846d6">
 </div>
 </section>
-<section id="slide-org92e6da2">
-<h3 id="org92e6da2">Hello World 1</h3>
+<section id="slide-org7460ac3">
+<h3 id="org7460ac3">Hello World 1</h3>
 <p>
 Introduce students to basic C++ development process by showing Hello world string on serial port using virtual com
 port of nucleo platform.
 </p>
 </section>
-<section id="slide-org79a375a">
-<h4 id="org79a375a">Exercise</h4>
+<section id="slide-orgae1efa2">
+<h4 id="orgae1efa2">Exercise</h4>
 <ol>
 <li>Twick program for another serial port.</li>
 <li>Try diffrent settings.</li>
@@ -640,15 +795,15 @@ port of nucleo platform.
 </ol>
 
 </section>
-<section id="slide-orgadb8669">
-<h3 id="orgadb8669">Hello World 2</h3>
+<section id="slide-org4eab3c8">
+<h3 id="org4eab3c8">Hello World 2</h3>
 <p>
 Constructor overloading to use non default baud rate settings.
 </p>
 
 </section>
-<section id="slide-orgb3aa792">
-<h3 id="orgb3aa792">Serial Port Interface</h3>
+<section id="slide-org153cf64">
+<h3 id="org153cf64">Serial Port Interface</h3>
 
 <div class="figure">
 <p><img src="./images/SerialPort_Interface.png" alt="SerialPort_Interface.png" />
@@ -666,8 +821,8 @@ create a base class interface for uart which then be overridden by individual su
 </p>
 
 </section>
-<section id="slide-org91f7e0d">
-<h4 id="org91f7e0d">Exercise</h4>
+<section id="slide-orgba548e3">
+<h4 id="orgba548e3">Exercise</h4>
 <p>
 Implement class for Uart Port 3
 </p>
@@ -677,48 +832,48 @@ Implement class for Uart Port 3
 </p>
 
 </section>
-<section id="slide-orge9883ac">
-<h3 id="orge9883ac">GPIO Class</h3>
+<section id="slide-org00d102d">
+<h3 id="org00d102d">GPIO Class</h3>
 <p>
 Mostly this can be exercise for students. Instead of createing pin wise subclasses we can create port wise classes.
 <img src="./images/Gpio_Class.png" alt="Gpio_Class.png" />
 </p>
 
 </section>
-<section id="slide-org5c9e852">
-<h4 id="org5c9e852">Exercise</h4>
+<section id="slide-org5c8c8bf">
+<h4 id="org5c8c8bf">Exercise</h4>
 <p>
 Create a wrapper class (<b><b>adapter pattern</b></b>) so that for every board type we don't need to pass pin every time  we call 
 api.
 </p>
 
 </section>
-<section id="slide-org90cd6da">
-<h4 id="org90cd6da">Overload initialization functions.</h4>
+<section id="slide-org62626b8">
+<h4 id="org62626b8">Overload initialization functions.</h4>
 </section>
-<section id="slide-orgee8c7df">
-<h4 id="orgee8c7df">overload constructor to take non default settings</h4>
+<section id="slide-orgf59cdb3">
+<h4 id="orgf59cdb3">overload constructor to take non default settings</h4>
 
 </section>
-<section id="slide-org1adafc5">
-<h3 id="org1adafc5">GPIO with bitset</h3>
+<section id="slide-org3554252">
+<h3 id="org3554252">GPIO with bitset</h3>
 
 </section>
-<section id="slide-org94ed6f7">
-<h3 id="org94ed6f7">GPIO with interrupt</h3>
+<section id="slide-org6428179">
+<h3 id="org6428179">GPIO with interrupt</h3>
 <p>
 How to integrate interrupt handlers. We will show case using member function.
 </p>
 
 </section>
-<section id="slide-orgd231598">
-<h4 id="orgd231598">Exercise</h4>
+<section id="slide-org4663d23">
+<h4 id="org4663d23">Exercise</h4>
 <p>
 ISR handlers can be made using static functions.
 </p>
 </section>
-<section id="slide-org46356c0">
-<h4 id="org46356c0">Exercise</h4>
+<section id="slide-orgb7c0eac">
+<h4 id="orgb7c0eac">Exercise</h4>
 <p>
 GPIO class is interface is mixture of pin vs port functons. Need to refactor so that pin and functons are binded 
 togethor.
@@ -733,19 +888,6 @@ togethor.
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-
-controls: true,
-progress: true,
-history: false,
-center: true,
-slideNumber: 'c',
-rollingLinks: false,
-keyboard: true,
-overview: true,
-
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-transitionSpeed: 'default',
 multiplex: {
     secret: '', // null if client
     id: '', // id, obtained from socket.io server
