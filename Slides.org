@@ -98,6 +98,8 @@ Operator overloading improves the code readability if used properly.
   3. Mass storage
   4. Virtual COM port
   5. Flexible power supply options
+** Setup
+[[./images/stlink_setup.png]]
 * Programming tools stlink 
 ** WARNING
 Please make sure not to connect both external 5 volts power supply and USB power supply at same time.
