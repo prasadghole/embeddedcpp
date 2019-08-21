@@ -158,6 +158,7 @@ memory area.
  2. rodata
 Contains read only values like constants. This section can be mapped to read only memory 
 area.
+#+REVEAL: split
  3. data
 Containing the values of all the initialized variables of the program, accessible in the read/write mode at runtime. 
 It is a section that contains all the variables, static or global, that have been initialized in the code. 
@@ -245,20 +246,21 @@ st-link_cli -C SWD -P firmware.bin 0x8000000 -V "after_programming"
 ** load elf
 ** Debug
 * C vs C++
-** Typesafty
+** Type safety
 ** Zero cost abstraction
-** Imperative vs Declarative programming paradigm
-#+BEGIN_NOTES
-https://tylermcginnis.com/imperative-vs-declarative-programming/
-#+END_NOTES
-
-* const
-
-* Use namespece
-Explain how we can use namespace to simplify naming of common static functions.
+** Higher level abstractions using classes
+** namespece
+1. Provide a method for preventing name conflicts in large projects. 
+2. allow to group entities like classes, objects and functions under a name. 
+3. This way the global scope can be divided in "sub-scopes", each one with its own name. 
 
 #+SRC_BEGIN C++
-
+namespece stm32f767::Uart 
+{
+    classes Uart1
+    {
+    }
+}
 #+SRC_END
 
 * Strongly typed
@@ -358,7 +360,7 @@ extern int C_library_function(void);
 * std::Array
 * std::bitset
 * std::tuple
-* Referances
+* References
 ** Gnu C 
 *** Predefined macros
 https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html
@@ -367,6 +369,11 @@ https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html
 http://www.keil.com/support/man/docs/armlib/armlib_chr1358938908603.htm
 
 C++ libraries need C libraries for target specific support.
+** Imperative vs Declarative programming paradigm
+#+BEGIN_NOTES
+https://tylermcginnis.com/imperative-vs-declarative-programming/
+#+END_NOTES
+
 * Program List
 ** Hello World 1
 Introduce students to basic C++ development process by showing Hello world string on serial port using virtual com
