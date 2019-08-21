@@ -259,12 +259,10 @@ namespece stm32f767::Uart
 * Strongly typed
 ** enum class
 * Function Inline
-  Macros can be replaced with strongly typed
-* Type Conversions
-** dynamic_cast
-** reinterpret_cast
-** static_cast
-** const_cast
+~inline~ keyword requeset compiler to replace code call with actual code contents to avoid overhead of function call.
+
+* auto 
+
 * static asserts 
 This will help in catching logical errors early in compile time.
 Basic sytax is
@@ -272,7 +270,6 @@ Basic sytax is
 ~static_assert ( bool_constexpr , message )~ 
 
 [[https://onlinegdb.com/HktaJw5Vr][Code]]
-
 * scoped enums
 An enumeration is a distinct type whose values are restricted to a range of values.
 Intenally enumerations are of integer type. But C++ enumeration are more strongly typed compared to C. In C enum and interger are 
@@ -314,6 +311,8 @@ int main ()
 [[https://onlinegdb.com/BkplLLN4r][code]]
 * User defined literals
 ** Temperature conversion
+* Exceptions
+
 * Delete functions
 For specific device classes we don't want to create duplicate copy of same peripheral object. 
 We can make sure nobody can accidently copy object we will delete copy constructor.
@@ -361,6 +360,12 @@ To do this on entire header file with exported functions we can used
 extern int C_library_function(void);
 #+END_SRC 
 
+* Virtual Functions
+**  Performance
+
+[[./images/virtual_compare.png]]
+
+[[https://hackaday.com/2015/11/13/code-craft-embedding-c-timing-virtual-functions/]]
 * Templates
 * std::Array
 * std::bitset
