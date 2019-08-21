@@ -1,7 +1,7 @@
 #+Title: Embedded C++ 
 # +Author: Prasad Ghole
 #+Email: prasad.ghole@ltts.com
-#+REVEAL_THEME: night
+#+REVEAL_THEME: moon
 #+OPTIONS: toc:nil num:nil timestamp:nil center:false
 #+REVEAL_EXTRA_CSS: ./mystyle.css
 * Introduction to C++
@@ -118,8 +118,8 @@ https://my.st.com/content/my_st_com/en/products/development-tools/software-devel
 OpenOCD is a Open On-Chip debugger that provides programming,debugging  boudry-scan
 testing for embedded device. It acts as a server and acceptss incoming
 connection from GDB via port 3333 or telnet port 4444.
-*** Setup
-[[./images/debugserver.png]]
+** Setup
+[[./images/stlink_setup.png]]
 
 * GCC cross compiler
 1. Go to the https://developer.arm.com 
@@ -196,26 +196,10 @@ const uint8_t
 __attribute__((section(“.crcfill”)))
 private_key[100] = {0};
 #+END_SRC
-
-* Language Features
-1. Statically typed
-2. Support procedural , object oriented and generic programming paradigms
-3. Compiled
-4. Versatile standard library
-5. Encapsulation
-6. Inheritance
-7. Polymorphism 
-
 * Literals
 Literals are tokens of C++ program that represent constant values embedded in source code.
 *** Interger Literals
 | Literal |
-* Hello World
-We will write hello world program which will print "Hello World of C++ " sting to serial port using micro controller UART3.
-
-#+BEGIN_NOTES
-Explain virtual com port.
-#+END_NOTES
 * Design
 [[./images/HelloWorld_Class.png]]
 
@@ -245,6 +229,15 @@ st-link_cli -C SWD -P firmware.bin 0x8000000 -V "after_programming"
 ** Start debug server
 ** load elf
 ** Debug
+
+* Language Features
+1. Statically typed
+2. Support procedural , object oriented and generic programming paradigms
+3. Compiled
+4. Versatile standard library
+5. Encapsulation
+6. Inheritance
+7. Polymorphism 
 * C vs C++
 ** Type safety
 ** Zero cost abstraction
@@ -273,7 +266,13 @@ namespece stm32f767::Uart
 ** static_cast
 ** const_cast
 * static asserts 
-This will help in compile time catching of errors.
+This will help in catching logical errors early in compile time.
+Basic sytax is
+
+~static_assert ( bool_constexpr , message )~ 
+
+[[https://onlinegdb.com/HktaJw5Vr][Code]]
+
 * scoped enums
 An enumeration is a distinct type whose values are restricted to a range of values.
 Intenally enumerations are of integer type. But C++ enumeration are more strongly typed compared to C. In C enum and interger are 
@@ -340,6 +339,12 @@ return_type operator operator_symbol (list of parameters)
 
 #+END_SRC
 ** Exercise Toggle gpio pin
+* Hello World
+We will write hello world program which will print "Hello World of C++ " sting to serial port using micro controller UART3.
+
+#+BEGIN_NOTES
+Explain virtual com port.
+#+END_NOTES
 
 * Mixing C and C++  libraries
 C++ compiler will use name mangeling hence functions name used by user will have diffrent name for compiler. Hence if you
