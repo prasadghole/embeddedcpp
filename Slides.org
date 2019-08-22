@@ -256,6 +256,17 @@ namespece stm32f767::Uart
 }
 #+SRC_END
 
+* constructor
+** Class Member Initialization
+Staring from C++ 11 we can now initialize class member variables in class declaration.
+
+#+BEGIN_SRC
+class SerialSettings {
+private:
+uint32_t m_baudrate = 9600; 
+}
+#+END_SRC_
+
 * Strongly typed
 ** enum class
 * Function Inline
@@ -275,8 +286,10 @@ An enumeration is a distinct type whose values are restricted to a range of valu
 Intenally enumerations are of integer type. But C++ enumeration are more strongly typed compared to C. In C enum and interger are 
 interchangeble but in C++ not unless explicitly casted.
 ** Size of enumerations
-Starting from C++ 11 we can now tell compiler to allocate specific size of enumerations constans. This will help in communication 
-protocols parser we can directly use enumerations values in transmit or recieve buffer.
+Starting from C++ 11 we can now tell compiler to allocate specific size of enumerations constans.
+
+This helps in situations where we need fix size of enumerations like protocols parser,
+we can directly use enumerations values in transmit or recieve buffer.
 
 #+BEGIN_SRC  C
 #include <stdio.h>
